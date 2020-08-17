@@ -12,12 +12,3 @@ jobs:
         run: ./flutterw pub get
       - name: Run tests
         run: ./flutterw test
-      #- name: Zip Assets
-      #  run: cd assets && zip ../assets.zip * -r && cd ..
-      #- name: Release
-      #  uses: softprops/action-gh-release@v1
-      #  if: startsWith(github.ref, 'refs/tags/')
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #  with:
-      #    files: assets.zip
