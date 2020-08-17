@@ -5,7 +5,7 @@ author: MyLittleSuite
 homepage: https://github.com/MyLittleSuite/flutter_essentials_kit
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -14,5 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  faker: ^1.2.1
 
 flutter:
+  uses-material-design: true
