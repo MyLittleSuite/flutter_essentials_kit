@@ -1,0 +1,18 @@
+name: flutter_essentials_kit
+description: A new Flutter package.
+version: 1.0.0
+author: MyLittleSuite
+homepage: https://github.com/MyLittleSuite/flutter_essentials_kit
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
