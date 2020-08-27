@@ -1,5 +1,8 @@
+## 1.1.1
+* Fix missing export for MarqueeWidget.
+
 ## 1.1.0
-* Create MarqueeWidget,
+* Create MarqueeWidget.
 
 ## 1.0.0
 * Create CourtesyWidget.
