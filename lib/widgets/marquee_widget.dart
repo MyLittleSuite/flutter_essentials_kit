@@ -19,6 +19,8 @@ class MarqueeWidget extends StatefulWidget {
 
 class _MarqueeWidgetState extends State<MarqueeWidget> {
   ScrollController scrollController = ScrollController();
+  bool _doScroll = true;
+
 
   @override
   void initState() {
@@ -35,8 +37,16 @@ class _MarqueeWidgetState extends State<MarqueeWidget> {
     );
   }
 
+  @override
+  void dispose() {
+    _doScroll = false;
+    scrollController.dispose();
+
+    super.dispose();
+  }
+
   void scroll() async {
-    while (true) {
+    while (_doScroll) {
       await Future.delayed(widget.pauseDuration);
       await scrollController.animateTo(
           scrollController.position.maxScrollExtent,
