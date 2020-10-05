@@ -1,3 +1,6 @@
+## 1.1.2
+* Fix wrong error disposing MarqueeWidget.
+
 ## 1.1.1
 * Fix missing export for MarqueeWidget.
 
