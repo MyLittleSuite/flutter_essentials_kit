@@ -1,3 +1,6 @@
+## 1.2.0
+* Remove MarqueeWidget.
+
 ## 1.1.2
 * Fix wrong error disposing MarqueeWidget.
 
