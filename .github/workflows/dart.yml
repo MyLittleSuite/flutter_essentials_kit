@@ -5,10 +5,15 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    container:
+      image: google/dart:latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install essentials from apt
+        run: apt-get update --quiet --yes && apt-get install --quiet --yes unzip apt-utils
+      - name: Install FVM
+        run: fvm install
       - name: Install dependencies
-        run: ./flutterw pub get
+        run: fvm flutter pub get
       - name: Run tests
-        run: ./flutterw test
+        run: fvm flutter test
