@@ -4,11 +4,13 @@ version: 1.2.0
 homepage: https://github.com/MyLittleSuite/flutter_essentials_kit
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  rxdart: any
+  tuple: any
 
 dev_dependencies:
   flutter_test:
