@@ -1,20 +1,17 @@
-import 'package:flutter_essentials_kit/errors/data_rule_error.dart';
+import 'package:flutter_essentials_kit/errors/data_rules/required_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 
 class RequiredRule<T> extends DataRule<T, T> {
-  DataRuleError _requiredError;
+  RequiredRuleError _error;
 
-  RequiredRule({String errorMessage}) {
-    _requiredError = DataRuleError(
-      localizedFunction: (context) =>
-          errorMessage ?? 'Questo campo è richiesto',
-    );
+  RequiredRule({RequiredRuleError error}) {
+    _error = error ?? RequiredRuleError();
   }
 
   @override
   T process(T data) {
     if (data == null) {
-      throw _requiredError;
+      throw _error;
     }
 
     if (data is String) {
@@ -29,7 +26,7 @@ class RequiredRule<T> extends DataRule<T, T> {
   String _processString(String data) {
     final processedData = data.trim();
     if (processedData.isEmpty) {
-      throw _requiredError;
+      throw _error;
     }
 
     return processedData;
@@ -37,7 +34,7 @@ class RequiredRule<T> extends DataRule<T, T> {
 
   List _processList(List data) {
     if (data.isEmpty) {
-      throw _requiredError;
+      throw _error;
     }
 
     return data;

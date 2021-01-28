@@ -1,45 +1,34 @@
-import 'package:flutter_essentials_kit/errors/data_rule_error.dart';
+import 'package:flutter_essentials_kit/errors/data_rules/max_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 import 'package:meta/meta.dart';
 
+/// Definition of the max value data rule.
 class MaxRule<T> extends DataRule<T, T> {
   final Comparable max;
 
-  DataRuleError _maxStringLengthError;
-  DataRuleError _maxIntError;
-  DataRuleError _maxListLengthError;
+  MaxRuleError _stringError;
+  MaxRuleError _numberError;
+  MaxRuleError _listError;
 
   MaxRule({
     @required this.max,
-    String stringErrorMessage,
-    String intErrorMessage,
-    String listErrorMessage,
+    MaxRuleError stringError,
+    MaxRuleError numberError,
+    MaxRuleError listError,
   }) {
     assert(max != null);
 
-    _maxStringLengthError = DataRuleError(
-      localizedFunction: (context) =>
-          stringErrorMessage ??
-          'La lunghezza del testo non può essere maggiore di $max caratteri',
-    );
-    _maxIntError = DataRuleError(
-      localizedFunction: (context) =>
-          intErrorMessage ??
-          'Il valore dell\'intero non può essere maggiore di $max',
-    );
-    _maxListLengthError = DataRuleError(
-      localizedFunction: (context) =>
-          listErrorMessage ??
-          'La dimensione della lista non può essere maggiore di $max',
-    );
+    _stringError = stringError ?? MaxRuleError.string(max: max);
+    _numberError = numberError ?? MaxRuleError.number(max: max);
+    _listError = listError ?? MaxRuleError.list(max: max);
   }
 
   @override
   T process(T data) {
     if (data is String) {
       return _processString(data) as T;
-    } else if (data is int) {
-      return _processInt(data) as T;
+    } else if (data is num) {
+      return _processNumber(data) as T;
     } else if (data is List) {
       return _processList(data) as T;
     }
@@ -48,22 +37,27 @@ class MaxRule<T> extends DataRule<T, T> {
   }
 
   String _processString(String data) {
-    if (data.length < max) {
-      throw _maxStringLengthError;
+    final number = num.tryParse(data);
+    if (number != null) {
+      return _processNumber(number).toString();
+    }
+
+    if (data.length > max) {
+      throw _stringError;
     }
     return data;
   }
 
-  int _processInt(int data) {
-    if (data < max) {
-      throw _maxIntError;
+  num _processNumber(num data) {
+    if (data > max) {
+      throw _numberError;
     }
     return data;
   }
 
   List _processList(List data) {
-    if (data.length < max) {
-      throw _maxListLengthError;
+    if (data.length > max) {
+      throw _listError;
     }
     return data;
   }

@@ -1,43 +1,33 @@
-import 'package:flutter_essentials_kit/errors/data_rule_error.dart';
+import 'package:flutter_essentials_kit/errors/data_rules/size_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 import 'package:meta/meta.dart';
 
 class SizeRule<T> extends DataRule<T, T> {
-  final int size;
+  final num size;
 
-  DataRuleError _sizeStringError;
-  DataRuleError _sizeIntError;
-  DataRuleError _sizeListError;
+  SizeRuleError _stringError;
+  SizeRuleError _numberError;
+  SizeRuleError _listError;
 
   SizeRule({
     @required this.size,
-    String sizeStringMessage,
-    String sizeIntMessage,
-    String sizeListError,
+    SizeRuleError stringError,
+    SizeRuleError numberError,
+    SizeRuleError listError,
   }) {
     assert(size != null);
 
-    _sizeStringError = DataRuleError(
-      localizedFunction: (context) =>
-          sizeStringMessage ??
-          'La lunghezza del testo deve essere di $size caratteri',
-    );
-    _sizeIntError = DataRuleError(
-      localizedFunction: (context) =>
-          sizeIntMessage ?? 'Il valore dell\'intero deve essere $size',
-    );
-    _sizeListError = DataRuleError(
-      localizedFunction: (context) =>
-          sizeListError ?? 'La dimensione della lista deve essere $size',
-    );
+    _stringError = stringError ?? SizeRuleError.string(size: size);
+    _numberError = numberError ?? SizeRuleError.number(size: size);
+    _listError = listError ?? SizeRuleError.list(size: size);
   }
 
   @override
   T process(T data) {
     if (data is String) {
       return _processString(data) as T;
-    } else if (data is int) {
-      return _processInt(data) as T;
+    } else if (data is num) {
+      return _processNumber(data) as T;
     } else if (data is List) {
       return _processList(data) as T;
     }
@@ -47,21 +37,21 @@ class SizeRule<T> extends DataRule<T, T> {
 
   String _processString(String data) {
     if (data.length != size) {
-      throw _sizeStringError;
+      throw _stringError;
     }
     return data;
   }
 
-  int _processInt(int data) {
+  num _processNumber(num data) {
     if (data != size) {
-      throw _sizeIntError;
+      throw _numberError;
     }
     return data;
   }
 
   List _processList(List data) {
     if (data.length == size) {
-      throw _sizeListError;
+      throw _listError;
     }
     return data;
   }

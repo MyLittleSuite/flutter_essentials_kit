@@ -14,6 +14,10 @@ void main() {
   });
 
   test('if value is false', () {
-    expect(() => rule.process(false), isInstanceOf<DataRuleError>());
+    try {
+      expect(rule.process(false), equals(0));
+    } catch (error) {
+      expect(error, isInstanceOf<ConfirmedRuleError>());
+    }
   });
 }

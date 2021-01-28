@@ -1,6 +1,13 @@
 library flutter_essentials_kit;
 
-export 'errors/data_rule_error.dart';
+export 'errors/data_rules/confimed_rule_error.dart';
+export 'errors/data_rules/data_rule_error.dart';
+export 'errors/data_rules/email_rule_error.dart';
+export 'errors/data_rules/max_rule_error.dart';
+export 'errors/data_rules/min_rule_error.dart';
+export 'errors/data_rules/required_rule_error.dart';
+export 'errors/data_rules/same_rule_error.dart';
+export 'errors/data_rules/size_rule_error.dart';
 export 'errors/localized_error.dart';
 export 'exceptions/localized_exception.dart';
 export 'extensions/iterable.dart';
