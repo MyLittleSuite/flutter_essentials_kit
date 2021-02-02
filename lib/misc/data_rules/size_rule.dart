@@ -36,6 +36,11 @@ class SizeRule<T> extends DataRule<T, T> {
   }
 
   String _processString(String data) {
+    final number = num.tryParse(data);
+    if (number != null) {
+      return _processNumber(number).toString();
+    }
+
     if (data.length != size) {
       throw _stringError;
     }
@@ -51,8 +56,8 @@ class SizeRule<T> extends DataRule<T, T> {
 
   List _processList(List data) {
     if (data.length == size) {
-      throw _listError;
+      return data;
     }
-    return data;
+    throw _listError;
   }
 }

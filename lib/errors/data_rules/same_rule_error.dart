@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_essentials_kit/errors/data_rules/data_rule_error.dart';
+import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_localizations.dart';
 
 /// Same value data rule error.
 class SameRuleError extends DataRuleError {
@@ -10,5 +11,5 @@ class SameRuleError extends DataRuleError {
   @override
   String localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      "I campi non corrispondono"; // TODO: i18n
+      FlutterEssentialsKitLocalizations.of(context).ruleSame;
 }

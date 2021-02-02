@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_essentials_kit/errors/data_rules/data_rule_error.dart';
+import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_localizations.dart';
 
 /// Size value data rule error.
 class SizeRuleError extends DataRuleError {
@@ -10,18 +11,21 @@ class SizeRuleError extends DataRuleError {
   SizeRuleError.string({@required int size})
       : this(
           localizedMessage: (context) =>
-              'La lunghezza del testo deve essere di $size caratteri',
+              FlutterEssentialsKitLocalizations.of(context)
+                  .ruleSizeStringLength(size),
         );
 
   SizeRuleError.number({@required int size})
       : this(
           localizedMessage: (context) =>
-              'Il valore del numero deve essere $size',
+              FlutterEssentialsKitLocalizations.of(context)
+                  .ruleSizeNumber(size),
         );
 
   SizeRuleError.list({@required int size})
       : this(
           localizedMessage: (context) =>
-              'La dimensione della lista deve essere $size',
+              FlutterEssentialsKitLocalizations.of(context)
+                  .ruleSizeListLength(size),
         );
 }

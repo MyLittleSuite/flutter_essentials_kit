@@ -24,3 +24,4 @@ export 'misc/two_way_binding.dart';
 export 'widgets/courtesy_widget.dart';
 export 'widgets/spacing.dart';
 export 'widgets/two_way_binding_builder.dart';
+import 'localizations/flutter_essentials_kit_localizations.dart';

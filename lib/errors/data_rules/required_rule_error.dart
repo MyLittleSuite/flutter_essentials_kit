@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_essentials_kit/errors/data_rules/data_rule_error.dart';
+import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_localizations.dart';
 
 /// Required data rule error.
 class RequiredRuleError extends DataRuleError {
@@ -10,5 +11,5 @@ class RequiredRuleError extends DataRuleError {
   @override
   String localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      'Questo campo è richiesto'; // TODO: i18n
+      FlutterEssentialsKitLocalizations.of(context).ruleRequired;
 }
