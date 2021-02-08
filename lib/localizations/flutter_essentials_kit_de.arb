@@ -1,0 +1,16 @@
+{
+  "ruleConfirmed": "Feld muss bestätigt werden",
+  "ruleEmail": "Diese E-Mail scheint nicht gültig zu sein",
+  "ruleMaxStringLength": "{max, plural, =1{Die Länge des Textes darf nicht länger als {max} Zeichen sein} other{Die Länge des Textes darf nicht länger als {max} Zeichen sein}}",
+  "ruleMaxNumber": "{max, plural, other{Der Wert der Zahl darf nicht größer als {max} sein}}",
+  "ruleMaxListLength": "{max, plural, other{Die Größe der Liste darf nicht größer als {max} sein}}",
+  "ruleMinStringLength": "{min, plural, =1{Die Länge des Textes darf nicht weniger als {min} Zeichen betragen} other{Die Länge des Textes darf nicht weniger als {min} Zeichen betragen}}",
+  "ruleMinNumber": "{min, plural, other{Der Wert der Zahl darf nicht kleiner als {min} sein}}",
+  "ruleMinListLength": "{min, plural, other{Die Größe der Liste darf nicht kleiner als {min} sein}}",
+  "ruleRegex": "Die Daten sind ungültig",
+  "ruleRequired": "Dieses Feld wird benötigt",
+  "ruleSame": "Die Felder stimmen nicht überein",
+  "ruleSizeStringLength": "{size, plural, =1{Die Länge des Textes muss {size} Zeichen sein} other{Die Länge des Textes muss {size} Zeichen betragen}}",
+  "ruleSizeNumber": "{size, plural, other{Der Zahlenwert muss {size} sein}}",
+  "ruleSizeListLength": "{size, plural, other{Die Größe der Liste muss {size} sein}}"
+}

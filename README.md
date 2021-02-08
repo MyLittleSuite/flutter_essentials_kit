@@ -13,7 +13,19 @@ dependencies:
 ```
 
 ## Usage
-Then you just have to import the package with this:
+Just use this import to use the package:
 ```
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
+```
+
+Plug the localization class in your `localizationsDelegates`.
+```dart
+import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
+
+MaterialApp(
+  localizationsDelegates: [
+    // ...
+    FlutterEssentialsKitLocalizations.delegate,
+    // ...
+);
 ```
