@@ -10,7 +10,7 @@ void main() {
     expectedElements = [1, 2, "12", 9129, "ciao", "come"];
   });
 
-  test('filterNull()', () {
+  test('filterNull', () {
     final result = elements.filterNull().toList();
     expect(result, equals(expectedElements));
   });
