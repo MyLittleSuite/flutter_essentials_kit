@@ -1,7 +1,7 @@
 import 'package:flutter_essentials_kit/errors/data_rules/min_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
-import 'package:meta/meta.dart';
 
+/// Definition of the min value data rule.
 class MinRule<T> extends DataRule<T, T> {
   final Comparable min;
 
@@ -9,17 +9,17 @@ class MinRule<T> extends DataRule<T, T> {
   MinRuleError _numberError;
   MinRuleError _listError;
 
-  MinRule({
-    @required this.min,
+  MinRule(
+    this.min, {
     MinRuleError stringError,
     MinRuleError numberError,
     MinRuleError listError,
   }) {
     assert(min != null);
 
-    _stringError = stringError ?? MinRuleError.string(min: min);
-    _numberError = numberError ?? MinRuleError.number(min: min);
-    _listError = listError ?? MinRuleError.list(min: min);
+    _stringError = stringError ?? MinRuleError.string(min);
+    _numberError = numberError ?? MinRuleError.number(min);
+    _listError = listError ?? MinRuleError.list(min);
   }
 
   @override

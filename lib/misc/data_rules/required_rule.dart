@@ -1,6 +1,7 @@
 import 'package:flutter_essentials_kit/errors/data_rules/required_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 
+/// Definition of required data.
 class RequiredRule<T> extends DataRule<T, T> {
   RequiredRuleError _error;
 

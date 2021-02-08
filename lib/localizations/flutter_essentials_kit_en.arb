@@ -1,0 +1,85 @@
+{
+  "ruleConfirmed": "This field must be confirmed",
+  "@ruleConfirmed": {
+    "description": "The rule confirmed error message"
+  },
+  "ruleEmail": "This email seems to be not valid",
+  "@ruleEmail": {
+    "description": "The rule email error message"
+  },
+  "ruleMaxStringLength": "{max, plural, =1{The text length can't be greater than {max} character} other{The text length can't be greater than {max} characters}}",
+  "@ruleMaxStringLength": {
+    "description": "The rule max string error message",
+    "placeholders": {
+      "max": {}
+    }
+  },
+  "ruleMaxNumber": "{max, plural, other{The number can't be greater than {max}}}",
+  "@ruleMaxNumber": {
+    "description": "The rule max number error message",
+    "placeholders": {
+      "max": {}
+    }
+  },
+  "ruleMaxListLength": "{max, plural, other{The list length can't be greater than {max}}}",
+  "@ruleMaxListLength": {
+    "description": "The rule max list length error message",
+    "placeholders": {
+      "max": {}
+    }
+  },
+  "ruleMinStringLength": "{min, plural, =1{The text length can't be less than {min} character} other{The text length can't be less than {max} characters}}",
+  "@ruleMinStringLength": {
+    "description": "The rule min string error message",
+    "placeholders": {
+      "min": {}
+    }
+  },
+  "ruleMinNumber": "{min, plural, other{The number can't be less than {min}}}",
+  "@ruleMinNumber": {
+    "description": "The rule min number error message",
+    "placeholders": {
+      "min": {}
+    }
+  },
+  "ruleMinListLength": "{min, plural, other{The list length can't be less than {min}}}",
+  "@ruleMinListLength": {
+    "description": "The rule min list length error message",
+    "placeholders": {
+      "min": {}
+    }
+  },
+  "ruleRegex": "This value is not valid",
+  "@ruleRegex": {
+    "description": "The rule regex error message"
+  },
+  "ruleRequired": "This field is required",
+  "@ruleRequired": {
+    "description": "The rule required error message"
+  },
+  "ruleSame": "The fields are not the same",
+  "@ruleSame": {
+    "description": "The rule same error message"
+  },
+  "ruleSizeStringLength": "{size, plural, =1{The text length must be {size} character} other{The text length must be {size} characters}}",
+  "@ruleSizeStringLength": {
+    "description": "The rule size string length error message",
+    "placeholders": {
+      "size": {}
+    }
+  },
+  "ruleSizeNumber": "{size, plural, other{The number must be {size}}}",
+  "@ruleSizeNumber": {
+    "description": "The rule size number error message",
+    "placeholders": {
+      "size": {}
+    }
+  },
+  "ruleSizeListLength": "{size, plural, other{The list length must be {size}}}",
+  "@ruleSizeListLength": {
+    "description": "The rule size list length error message",
+    "placeholders": {
+      "size": {}
+    }
+  }
+}

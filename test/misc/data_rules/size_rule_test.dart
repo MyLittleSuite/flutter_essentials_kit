@@ -1,16 +1,13 @@
-import 'package:faker/faker.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  Faker faker;
   SizeRule rule;
   num size = 5;
   List<int> invalidSizes;
 
   setUp(() {
-    faker = Faker();
-    rule = SizeRule(size: size);
+    rule = SizeRule(size);
 
     invalidSizes = [
       size - 3,

@@ -6,7 +6,7 @@ void main() {
   num max = 5;
 
   setUp(() {
-    rule = MaxRule(max: max);
+    rule = MaxRule(max);
   });
 
   test('if value is a valid number string', () {

@@ -1,3 +1,11 @@
+## 1.3.0
+* Add TwoWayBinding
+* Add Spacing widget
+* Add DataRules to validate forms.
+* Add Localized abstract class to translate user messages.
+* Add LocalizedError abstract class to translate user error messages.
+* Add LocalizedException abstract class to translate user error messages.
+
 ## 1.2.0
 * Remove MarqueeWidget.
 

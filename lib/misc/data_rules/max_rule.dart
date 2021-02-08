@@ -1,6 +1,5 @@
 import 'package:flutter_essentials_kit/errors/data_rules/max_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
-import 'package:meta/meta.dart';
 
 /// Definition of the max value data rule.
 class MaxRule<T> extends DataRule<T, T> {
@@ -10,17 +9,17 @@ class MaxRule<T> extends DataRule<T, T> {
   MaxRuleError _numberError;
   MaxRuleError _listError;
 
-  MaxRule({
-    @required this.max,
+  MaxRule(
+    this.max, {
     MaxRuleError stringError,
     MaxRuleError numberError,
     MaxRuleError listError,
   }) {
     assert(max != null);
 
-    _stringError = stringError ?? MaxRuleError.string(max: max);
-    _numberError = numberError ?? MaxRuleError.number(max: max);
-    _listError = listError ?? MaxRuleError.list(max: max);
+    _stringError = stringError ?? MaxRuleError.string(max);
+    _numberError = numberError ?? MaxRuleError.number(max);
+    _listError = listError ?? MaxRuleError.list(max);
   }
 
   @override

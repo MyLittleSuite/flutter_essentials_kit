@@ -1,7 +1,7 @@
 import 'package:flutter_essentials_kit/errors/data_rules/size_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
-import 'package:meta/meta.dart';
 
+/// Definition of the max value data rule.
 class SizeRule<T> extends DataRule<T, T> {
   final num size;
 
@@ -9,17 +9,17 @@ class SizeRule<T> extends DataRule<T, T> {
   SizeRuleError _numberError;
   SizeRuleError _listError;
 
-  SizeRule({
-    @required this.size,
+  SizeRule(
+    this.size, {
     SizeRuleError stringError,
     SizeRuleError numberError,
     SizeRuleError listError,
   }) {
     assert(size != null);
 
-    _stringError = stringError ?? SizeRuleError.string(size: size);
-    _numberError = numberError ?? SizeRuleError.number(size: size);
-    _listError = listError ?? SizeRuleError.list(size: size);
+    _stringError = stringError ?? SizeRuleError.string(size);
+    _numberError = numberError ?? SizeRuleError.number(size);
+    _listError = listError ?? SizeRuleError.list(size);
   }
 
   @override

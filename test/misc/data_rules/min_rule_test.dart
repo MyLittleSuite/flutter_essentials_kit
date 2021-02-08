@@ -6,7 +6,7 @@ void main() {
   num min = 2;
 
   setUp(() {
-    rule = MinRule(min: min);
+    rule = MinRule(min);
   });
 
   test('if value is a valid number string', () {

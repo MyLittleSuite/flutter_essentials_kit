@@ -8,21 +8,21 @@ class SizeRuleError extends DataRuleError {
     String Function(BuildContext context) localizedMessage,
   }) : super(localizedMessage: localizedMessage);
 
-  SizeRuleError.string({@required int size})
+  SizeRuleError.string(int size)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
                   .ruleSizeStringLength(size),
         );
 
-  SizeRuleError.number({@required int size})
+  SizeRuleError.number(int size)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
                   .ruleSizeNumber(size),
         );
 
-  SizeRuleError.list({@required int size})
+  SizeRuleError.list(int size)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
