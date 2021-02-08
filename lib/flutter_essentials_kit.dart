@@ -11,7 +11,6 @@ export 'errors/data_rules/same_rule_error.dart';
 export 'errors/data_rules/size_rule_error.dart';
 export 'errors/localized_error.dart';
 export 'exceptions/localized_exception.dart';
-export 'extensions/date_format.dart';
 export 'extensions/date_time.dart';
 export 'extensions/iterable.dart';
 export 'localizations/flutter_essentials_kit_localizations.dart';

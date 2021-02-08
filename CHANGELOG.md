@@ -5,6 +5,7 @@
 * Add Localized abstract class to translate user messages.
 * Add LocalizedError abstract class to translate user error messages.
 * Add LocalizedException abstract class to translate user error messages.
+* Add DateTimeOperations extension on DateTime, which contains some common operations on DateTime.
 
 ## 1.2.0
 * Remove MarqueeWidget.
