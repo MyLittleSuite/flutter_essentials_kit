@@ -1,27 +1,16 @@
-#name: Dart CI
+name: Dart CI
 
-#on: push
+on: push
 
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Install environments
-#        run: |
-#          sudo apt-get update &&
-#          sudo apt-get install --quiet --yes unzip apt-utils apt-transport-https &&
-#          sudo sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' &&
-#          sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list' &&
-#          sudo apt-get update &&
-#          sudo apt-get install dart &&
-#          export PATH="$PATH:/usr/lib/dart/bin" &&
-#          export PATH="$PATH":"$HOME/.pub-cache/bin"
-#      - uses: actions/checkout@v2
-#      - name: Install FVM
-#        run: pub global activate fvm 1.3.7
-#      - name: Install Flutter
-#        run: fvm install
-#      - name: Install dependencies
-#        run: fvm flutter pub get
-#      - name: Run tests
-#        run: fvm flutter test
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: leoafarias/fvm:latest
+    steps:
+      - name: Install Flutter
+        run: fvm install
+      - name: Install dependencies
+        run: fvm flutter pub get
+      - name: Run tests
+        run: fvm flutter test
