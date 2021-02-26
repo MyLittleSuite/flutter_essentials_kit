@@ -16,7 +16,16 @@ void main() {
   });
 
   test('endOfDay', () {
-    final expected = DateTime(date.year, date.month, date.day, 23, 59, 59);
+    final expected = DateTime(
+      date.year,
+      date.month,
+      date.day,
+      23,
+      59,
+      59,
+      date.millisecond,
+      date.microsecond,
+    );
     expect(date.endOfDay(), equals(expected));
   });
 
@@ -87,6 +96,8 @@ void main() {
       date.hour,
       date.minute,
       date.second,
+      date.millisecond,
+      date.microsecond,
     );
     final result = date.nextMonth();
 
@@ -101,6 +112,8 @@ void main() {
       date.hour,
       date.minute,
       date.second,
+      date.millisecond,
+      date.microsecond,
     );
     final result = date.previousMonth();
 
@@ -117,6 +130,70 @@ void main() {
   test('previousWeek', () {
     final expected = date.subtract(Duration(days: DateTime.daysPerWeek));
     final result = date.previousWeek();
+
+    expect(result, equals(expected));
+  });
+
+  test('nextYear', () {
+    final expected = DateTime(
+      date.year + 1,
+      date.month,
+      date.day,
+      date.hour,
+      date.minute,
+      date.second,
+      date.millisecond,
+      date.microsecond,
+    );
+    final result = date.nextYear();
+
+    expect(result, equals(expected));
+  });
+
+  test('previousYear', () {
+    final expected = DateTime(
+      date.year - 1,
+      date.month,
+      date.day,
+      date.hour,
+      date.minute,
+      date.second,
+      date.millisecond,
+      date.microsecond,
+    );
+    final result = date.previousYear();
+
+    expect(result, equals(expected));
+  });
+
+  test('onlyDate', () {
+    final expected = DateTime(
+      date.year,
+      date.month,
+      date.day,
+      0,
+      0,
+      0,
+      0,
+      0,
+    );
+    final result = date.onlyDate();
+
+    expect(result, equals(expected));
+  });
+
+  test('onlyTime', () {
+    final expected = DateTime(
+      0,
+      0,
+      0,
+      date.hour,
+      date.minute,
+      date.second,
+      date.millisecond,
+      date.microsecond,
+    );
+    final result = date.onlyTime();
 
     expect(result, equals(expected));
   });

@@ -1,3 +1,8 @@
+## 1.4.0
+* Add textColorBasedOnLuminance to calculate the correct text color, based on the background one.
+* Add groupBy on Iterable.
+* Add nextYear, previousYear, onlyDate, onlyTime in DateTime extension.
+
 ## 1.3.0
 * Add TwoWayBinding
 * Add Spacing widget

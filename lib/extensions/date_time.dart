@@ -1,6 +1,12 @@
 extension DateTimeOperations on DateTime {
   /// Create a new date setting hour, minute and second to 0.
-  DateTime startOfDay() => _copyWith(hour: 0, minute: 0, second: 0);
+  DateTime startOfDay() => _copyWith(
+        hour: 0,
+        minute: 0,
+        second: 0,
+        millisecond: 0,
+        microsecond: 0,
+      );
 
   /// Create a new date setting hour to 23, minute to 59, and second to 59.
   DateTime endOfDay() => _copyWith(hour: 23, minute: 59, second: 59);
@@ -32,6 +38,24 @@ extension DateTimeOperations on DateTime {
   /// Create a new date with previous week values.
   DateTime previousWeek() => subtract(Duration(days: DateTime.daysPerWeek));
 
+  /// Create a new date with next year values.
+  DateTime nextYear() => _copyWith(year: year + 1);
+
+  /// Create a new date with previous year values.
+  DateTime previousYear() => _copyWith(year: year - 1);
+
+  /// Create a new date with only date value (0 for hour, minute and second).
+  DateTime onlyDate() => _copyWith(
+        hour: 0,
+        minute: 0,
+        second: 0,
+        millisecond: 0,
+        microsecond: 0,
+      );
+
+  /// Create a new date with only time value (0 for year, month and day).
+  DateTime onlyTime() => _copyWith(year: 0, month: 0, day: 0);
+
   DateTime _copyWith({
     int year,
     int month,
@@ -39,6 +63,8 @@ extension DateTimeOperations on DateTime {
     int hour,
     int minute,
     int second,
+    int millisecond,
+    int microsecond,
   }) =>
       DateTime(
         year ?? this.year,
@@ -47,5 +73,7 @@ extension DateTimeOperations on DateTime {
         hour ?? this.hour,
         minute ?? this.minute,
         second ?? this.second,
+        millisecond ?? this.millisecond,
+        microsecond ?? this.microsecond,
       );
 }
