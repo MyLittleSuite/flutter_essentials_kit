@@ -8,6 +8,7 @@ jobs:
     container:
       image: leoafarias/fvm:latest
     steps:
+      - uses: actions/checkout@v2
       - name: Install Flutter
         run: fvm install
       - name: Install dependencies
