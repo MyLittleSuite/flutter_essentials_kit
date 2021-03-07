@@ -7,13 +7,12 @@ class RegexRule extends DataRule<String, String> {
 
   RegexRuleError _error;
 
-  RegexRule(this.regex, {RegexRuleError error}) {
-    _error = error ?? RegexRuleError();
-  }
+  RegexRule(this.regex, {RegexRuleError? error})
+      : _error = error ?? RegexRuleError();
 
   @override
-  String process(String data) {
-    if (!regex.hasMatch(data)) {
+  String? process(String? data) {
+    if (data != null && !regex.hasMatch(data)) {
       throw _error;
     }
 

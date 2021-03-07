@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 
+// ignore: must_be_immutable
 class TwoWayBindingPage extends StatelessWidget {
   TwoWayBinding<String> _binding;
   TwoWayBinding<String> _sameBinding;

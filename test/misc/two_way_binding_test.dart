@@ -3,12 +3,11 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  Faker faker;
-  TwoWayBinding<String> binding;
-  List<String> values;
+  final faker = Faker();
+  late TwoWayBinding<String> binding;
+  late List<String?> values;
 
   setUp(() {
-    faker = Faker();
     binding = TwoWayBinding();
     values = faker.lorem.words(10);
   });
@@ -48,7 +47,9 @@ void main() {
     binding = binding.bindDataRule(RequiredRule());
 
     final futureExpect = expectLater(
-        binding.stream, emitsError(isInstanceOf<RequiredRuleError>()));
+      binding.stream,
+      emitsError(isInstanceOf<RequiredRuleError>()),
+    );
     binding.change(null);
     await futureExpect;
   });

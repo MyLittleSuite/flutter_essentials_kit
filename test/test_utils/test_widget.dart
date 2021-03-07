@@ -4,9 +4,10 @@ import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_loca
 class TestWidget extends StatelessWidget {
   final Widget child;
 
-  TestWidget({Key key, @required this.child}) : super(key: key) {
-    assert(child != null);
-  }
+  TestWidget({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => MaterialApp(

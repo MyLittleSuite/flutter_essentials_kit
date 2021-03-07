@@ -2,7 +2,7 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  RequiredRule rule;
+  late RequiredRule rule;
 
   setUp(() {
     rule = RequiredRule();

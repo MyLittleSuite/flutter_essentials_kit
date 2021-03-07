@@ -11,25 +11,23 @@ class SizeRule<T> extends DataRule<T, T> {
 
   SizeRule(
     this.size, {
-    SizeRuleError stringError,
-    SizeRuleError numberError,
-    SizeRuleError listError,
-  }) {
-    assert(size != null);
-
-    _stringError = stringError ?? SizeRuleError.string(size);
-    _numberError = numberError ?? SizeRuleError.number(size);
-    _listError = listError ?? SizeRuleError.list(size);
-  }
+    SizeRuleError? stringError,
+    SizeRuleError? numberError,
+    SizeRuleError? listError,
+  })  : _stringError = stringError ?? SizeRuleError.string(size.toInt()),
+        _numberError = numberError ?? SizeRuleError.number(size.toInt()),
+        _listError = listError ?? SizeRuleError.list(size.toInt());
 
   @override
-  T process(T data) {
-    if (data is String) {
-      return _processString(data) as T;
-    } else if (data is num) {
-      return _processNumber(data) as T;
-    } else if (data is List) {
-      return _processList(data) as T;
+  T? process(T? data) {
+    if (data != null) {
+      if (data is String) {
+        return _processString(data) as T;
+      } else if (data is num) {
+        return _processNumber(data) as T;
+      } else if (data is List) {
+        return _processList(data) as T;
+      }
     }
 
     return data;

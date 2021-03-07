@@ -5,11 +5,11 @@ import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_loca
 /// Same value data rule error.
 class SameRuleError extends DataRuleError {
   SameRuleError({
-    String Function(BuildContext context) localizedMessage,
+    DataRuleErrorLocalizedMessage? localizedMessage,
   }) : super(localizedMessage: localizedMessage);
 
   @override
-  String localizedString(BuildContext context) =>
+  String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context).ruleSame;
+      FlutterEssentialsKitLocalizations.of(context)?.ruleSame;
 }

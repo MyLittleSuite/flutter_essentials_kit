@@ -6,9 +6,9 @@ import 'package:flutter_test/flutter_test.dart';
 import '../test_utils/test_widget.dart';
 
 void main() {
-  String title;
-  String message;
-  String action;
+  late String title;
+  late String message;
+  late String action;
 
   setUp(() {
     final faker = Faker();
@@ -18,19 +18,13 @@ void main() {
     action = faker.lorem.word();
   });
 
-  testWidgets('with no titles', (WidgetTester tester) async {
-    expect(() async {
-      await tester.pumpWidget(TestWidget(child: CourtesyWidget(title: null)));
-    }, throwsAssertionError);
-  });
-
   testWidgets('with only main title', (WidgetTester tester) async {
     await tester.pumpWidget(TestWidget(child: CourtesyWidget(title: title)));
 
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsNothing);
 
-    final actionFinder = find.widgetWithText(RaisedButton, action);
+    final actionFinder = find.widgetWithText(ElevatedButton, action);
     expect(actionFinder, findsNothing);
   });
 
@@ -45,7 +39,7 @@ void main() {
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsOneWidget);
 
-    final actionFinder = find.widgetWithText(RaisedButton, action);
+    final actionFinder = find.widgetWithText(ElevatedButton, action);
     expect(actionFinder, findsNothing);
   });
 
@@ -62,11 +56,11 @@ void main() {
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsOneWidget);
 
-    final actionFinder = find.widgetWithText(RaisedButton, action);
+    final actionFinder = find.widgetWithText(ElevatedButton, action);
     expect(actionFinder, findsOneWidget);
 
-    final actionButton = actionFinder.evaluate().first.widget as RaisedButton;
-    expect(actionButton is RaisedButton, isTrue);
+    final actionButton = actionFinder.evaluate().first.widget as ElevatedButton;
+    expect(actionButton is ElevatedButton, isTrue);
     expect(actionButton.enabled, isFalse);
   });
 
@@ -84,11 +78,11 @@ void main() {
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsOneWidget);
 
-    final actionFinder = find.widgetWithText(RaisedButton, action);
+    final actionFinder = find.widgetWithText(ElevatedButton, action);
     expect(actionFinder, findsOneWidget);
 
-    final actionButton = actionFinder.evaluate().first.widget as RaisedButton;
-    expect(actionButton is RaisedButton, isTrue);
+    final actionButton = actionFinder.evaluate().first.widget as ElevatedButton;
+    expect(actionButton is ElevatedButton, isTrue);
     expect(actionButton.enabled, isTrue);
   });
 }

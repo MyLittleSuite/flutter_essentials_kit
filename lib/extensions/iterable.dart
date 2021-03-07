@@ -5,15 +5,18 @@ extension IterableFiltering<T> on Iterable<T> {
   /// Example:
   ///   before: [1, 2, null, "12", null, 9129, "ciao", null, "come", null]
   ///   after: [1, 2, "12", 9129, "ciao", "come"]
-  Iterable<T> filterNull() => where((element) => element != null);
+  Iterable<T> filterNull<S>() => where((element) => element != null);
 }
+
+/// Grouping elements using a criteria.
+typedef IterableGroupingCriteria<K> = int Function(K, K);
 
 extension IterableGrouping<T> on Iterable<T> {
   /// Group elements in this iterable.
   /// Specifying a sorting criteria, this function returns a sorted map by key.
   Map<K, List<T>> groupBy<K>(
     K Function(T) keyFunction, {
-    int Function(K, K) sortingCriteria,
+    IterableGroupingCriteria<K>? sortingCriteria,
   }) =>
       fold(
         sortingCriteria != null

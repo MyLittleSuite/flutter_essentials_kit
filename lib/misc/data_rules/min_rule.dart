@@ -3,7 +3,7 @@ import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 
 /// Definition of the min value data rule.
 class MinRule<T> extends DataRule<T, T> {
-  final Comparable min;
+  final num min;
 
   MinRuleError _stringError;
   MinRuleError _numberError;
@@ -11,25 +11,23 @@ class MinRule<T> extends DataRule<T, T> {
 
   MinRule(
     this.min, {
-    MinRuleError stringError,
-    MinRuleError numberError,
-    MinRuleError listError,
-  }) {
-    assert(min != null);
-
-    _stringError = stringError ?? MinRuleError.string(min);
-    _numberError = numberError ?? MinRuleError.number(min);
-    _listError = listError ?? MinRuleError.list(min);
-  }
+    MinRuleError? stringError,
+    MinRuleError? numberError,
+    MinRuleError? listError,
+  })  : _stringError = stringError ?? MinRuleError.string(min.toInt()),
+        _numberError = numberError ?? MinRuleError.number(min.toInt()),
+        _listError = listError ?? MinRuleError.list(min.toInt());
 
   @override
-  T process(T data) {
-    if (data is String) {
-      return _processString(data) as T;
-    } else if (data is num) {
-      return _processNumber(data) as T;
-    } else if (data is List) {
-      return _processList(data) as T;
+  T? process(T? data) {
+    if (data != null) {
+      if (data is String) {
+        return _processString(data) as T;
+      } else if (data is num) {
+        return _processNumber(data) as T;
+      } else if (data is List) {
+        return _processList(data) as T;
+      }
     }
 
     return data;
