@@ -1,3 +1,6 @@
+## 2.0.0
+* Add support for null safety and Flutter 2.
+
 ## 1.4.0
 * Add textColorBasedOnLuminance to calculate the correct text color, based on the background one.
 * Add groupBy on Iterable.
