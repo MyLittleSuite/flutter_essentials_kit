@@ -16,7 +16,7 @@ jobs:
       - name: Run tests
         run: fvm flutter test
 
-  lint:publish:dryrun:
+  lint_publish_dryrun:
     runs-on: ubuntu-latest
     container:
       image: leoafarias/fvm:latest
