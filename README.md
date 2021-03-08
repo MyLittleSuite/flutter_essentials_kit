@@ -31,8 +31,8 @@ MaterialApp(
 ```
 
 ## Docs
-* [errors](docs/errors.md)
-* [exceptions](docs/exceptions.md)
-* [extensions](docs/extensions.md)
-* [misc](docs/misc.md)
-* [widgets](docs/widgets.md)
+* [errors](mds/errors.md)
+* [exceptions](mds/exceptions.md)
+* [extensions](mds/extensions.md)
+* [misc](mds/misc.md)
+* [widgets](mds/widgets.md)
