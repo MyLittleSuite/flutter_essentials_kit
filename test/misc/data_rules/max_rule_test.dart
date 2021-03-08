@@ -2,8 +2,8 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  MaxRule rule;
-  num max = 5;
+  final int max = 5;
+  late MaxRule rule;
 
   setUp(() {
     rule = MaxRule(max);

@@ -3,15 +3,14 @@ import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 
 /// Definition of the confirmation data rule, validating if a bool is true.
 class ConfirmedRule extends DataRule<bool, bool> {
-  ConfirmedRuleError _error;
+  final ConfirmedRuleError _error;
 
-  ConfirmedRule({ConfirmedRuleError error}) {
-    _error = error ?? ConfirmedRuleError();
-  }
+  ConfirmedRule({ConfirmedRuleError? error})
+      : _error = error ?? ConfirmedRuleError();
 
   @override
-  bool process(bool data) {
-    if (!data) {
+  bool? process(bool? data) {
+    if (data != null && !data) {
       throw _error;
     }
 

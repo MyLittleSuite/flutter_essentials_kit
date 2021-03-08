@@ -1,24 +1,24 @@
 name: flutter_essentials_kit
 description: A kit of useful functions and widget to speed up development.
-version: 1.4.0
+version: 2.0.0-dev.0
 homepage: https://github.com/MyLittleSuite/flutter_essentials_kit
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  rxdart: ^0.25.0
-  tuple: ^1.0.3
-  intl: ^0.16.1
+  rxdart: ^0.26.0
+  tuple: ^2.0.0-nullsafety.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  faker: ^1.2.1
+  faker: ^2.0.0-rc.1
 
 flutter:
   uses-material-design: true

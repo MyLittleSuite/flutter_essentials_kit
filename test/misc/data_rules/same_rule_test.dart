@@ -4,11 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tuple/tuple.dart';
 
 void main() {
-  Faker faker;
-  SameRule rule;
+  final faker = Faker();
+  late SameRule rule;
 
   setUp(() {
-    faker = Faker();
     rule = SameRule();
   });
 

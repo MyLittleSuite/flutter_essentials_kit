@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final faker = Faker();
-  DateTime date;
+  late DateTime date;
 
   setUp(() {
     date = faker.date.dateTime();

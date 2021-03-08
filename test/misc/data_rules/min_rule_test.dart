@@ -2,8 +2,8 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  MinRule rule;
-  num min = 2;
+  final int min = 2;
+  late MinRule rule;
 
   setUp(() {
     rule = MinRule(min);

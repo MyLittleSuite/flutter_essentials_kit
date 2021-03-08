@@ -39,7 +39,7 @@ class CourtesyWidgetPage extends StatelessWidget {
                     builder: (context) => AlertDialog(
                       title: Text('Action pressed!'),
                       actions: [
-                        FlatButton(
+                        ElevatedButton(
                           child: Text('OK'),
                           onPressed: () => Navigator.pop(context),
                         ),

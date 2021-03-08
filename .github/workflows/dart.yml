@@ -15,3 +15,14 @@ jobs:
         run: fvm flutter pub get
       - name: Run tests
         run: fvm flutter test
+
+  lint_publish_dryrun:
+    runs-on: ubuntu-latest
+    container:
+      image: leoafarias/fvm:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Flutter
+        run: fvm install
+      - name: Run publish dry run
+        run: fvm flutter pub publish --dry-run

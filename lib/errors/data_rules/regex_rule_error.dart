@@ -5,11 +5,11 @@ import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_loca
 /// Invalid email data rule error.
 class RegexRuleError extends DataRuleError {
   RegexRuleError({
-    String Function(BuildContext context) localizedMessage,
+    DataRuleErrorLocalizedMessage? localizedMessage,
   }) : super(localizedMessage: localizedMessage);
 
   @override
-  String localizedString(BuildContext context) =>
+  String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context).ruleRegex;
+      FlutterEssentialsKitLocalizations.of(context)?.ruleRegex;
 }

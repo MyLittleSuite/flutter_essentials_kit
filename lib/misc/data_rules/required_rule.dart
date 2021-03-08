@@ -5,12 +5,11 @@ import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 class RequiredRule<T> extends DataRule<T, T> {
   RequiredRuleError _error;
 
-  RequiredRule({RequiredRuleError error}) {
-    _error = error ?? RequiredRuleError();
-  }
+  RequiredRule({RequiredRuleError? error})
+      : _error = error ?? RequiredRuleError();
 
   @override
-  T process(T data) {
+  T? process(T? data) {
     if (data == null) {
       throw _error;
     }

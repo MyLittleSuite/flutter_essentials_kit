@@ -57,14 +57,14 @@ extension DateTimeOperations on DateTime {
   DateTime onlyTime() => _copyWith(year: 0, month: 0, day: 0);
 
   DateTime _copyWith({
-    int year,
-    int month,
-    int day,
-    int hour,
-    int minute,
-    int second,
-    int millisecond,
-    int microsecond,
+    int? year,
+    int? month,
+    int? day,
+    int? hour,
+    int? minute,
+    int? second,
+    int? millisecond,
+    int? microsecond,
   }) =>
       DateTime(
         year ?? this.year,

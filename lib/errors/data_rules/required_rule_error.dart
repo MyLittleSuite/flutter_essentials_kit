@@ -5,11 +5,11 @@ import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_loca
 /// Required data rule error.
 class RequiredRuleError extends DataRuleError {
   RequiredRuleError({
-    String Function(BuildContext context) localizedMessage,
+    DataRuleErrorLocalizedMessage? localizedMessage,
   }) : super(localizedMessage: localizedMessage);
 
   @override
-  String localizedString(BuildContext context) =>
+  String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context).ruleRequired;
+      FlutterEssentialsKitLocalizations.of(context)?.ruleRequired;
 }

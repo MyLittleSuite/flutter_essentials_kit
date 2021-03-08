@@ -3,11 +3,10 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  Faker faker;
-  EmailRule rule;
+  final faker = Faker();
+  late EmailRule rule;
 
   setUp(() {
-    faker = Faker();
     rule = EmailRule();
   });
 
@@ -31,7 +30,7 @@ void main() {
   });
 
   test('if email is valid', () {
-    final email = faker.internet.email();
+    final email = faker.internet.freeEmail();
     final result = rule.process(email);
 
     expect(email, equals(result));

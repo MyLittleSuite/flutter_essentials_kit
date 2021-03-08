@@ -2,9 +2,9 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  SizeRule rule;
-  num size = 5;
-  List<int> invalidSizes;
+  final int size = 5;
+  late SizeRule rule;
+  late List<int> invalidSizes;
 
   setUp(() {
     rule = SizeRule(size);

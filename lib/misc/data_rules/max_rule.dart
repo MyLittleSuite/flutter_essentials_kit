@@ -3,7 +3,7 @@ import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 
 /// Definition of the max value data rule.
 class MaxRule<T> extends DataRule<T, T> {
-  final Comparable max;
+  final num max;
 
   MaxRuleError _stringError;
   MaxRuleError _numberError;
@@ -11,25 +11,23 @@ class MaxRule<T> extends DataRule<T, T> {
 
   MaxRule(
     this.max, {
-    MaxRuleError stringError,
-    MaxRuleError numberError,
-    MaxRuleError listError,
-  }) {
-    assert(max != null);
-
-    _stringError = stringError ?? MaxRuleError.string(max);
-    _numberError = numberError ?? MaxRuleError.number(max);
-    _listError = listError ?? MaxRuleError.list(max);
-  }
+    MaxRuleError? stringError,
+    MaxRuleError? numberError,
+    MaxRuleError? listError,
+  })  : _stringError = stringError ?? MaxRuleError.string(max.toInt()),
+        _numberError = numberError ?? MaxRuleError.number(max.toInt()),
+        _listError = listError ?? MaxRuleError.list(max.toInt());
 
   @override
-  T process(T data) {
-    if (data is String) {
-      return _processString(data) as T;
-    } else if (data is num) {
-      return _processNumber(data) as T;
-    } else if (data is List) {
-      return _processList(data) as T;
+  T? process(T? data) {
+    if (data != null) {
+      if (data is String) {
+        return _processString(data) as T;
+      } else if (data is num) {
+        return _processNumber(data) as T;
+      } else if (data is List) {
+        return _processList(data) as T;
+      }
     }
 
     return data;

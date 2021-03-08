@@ -1,7 +1,7 @@
 import 'package:flutter_essentials_kit/errors/data_rules/size_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 
-/// Definition of the max value data rule.
+/// Definition of the size value data rule.
 class SizeRule<T> extends DataRule<T, T> {
   final num size;
 
@@ -11,25 +11,23 @@ class SizeRule<T> extends DataRule<T, T> {
 
   SizeRule(
     this.size, {
-    SizeRuleError stringError,
-    SizeRuleError numberError,
-    SizeRuleError listError,
-  }) {
-    assert(size != null);
-
-    _stringError = stringError ?? SizeRuleError.string(size);
-    _numberError = numberError ?? SizeRuleError.number(size);
-    _listError = listError ?? SizeRuleError.list(size);
-  }
+    SizeRuleError? stringError,
+    SizeRuleError? numberError,
+    SizeRuleError? listError,
+  })  : _stringError = stringError ?? SizeRuleError.string(size.toInt()),
+        _numberError = numberError ?? SizeRuleError.number(size.toInt()),
+        _listError = listError ?? SizeRuleError.list(size.toInt());
 
   @override
-  T process(T data) {
-    if (data is String) {
-      return _processString(data) as T;
-    } else if (data is num) {
-      return _processNumber(data) as T;
-    } else if (data is List) {
-      return _processList(data) as T;
+  T? process(T? data) {
+    if (data != null) {
+      if (data is String) {
+        return _processString(data) as T;
+      } else if (data is num) {
+        return _processNumber(data) as T;
+      } else if (data is List) {
+        return _processList(data) as T;
+      }
     }
 
     return data;

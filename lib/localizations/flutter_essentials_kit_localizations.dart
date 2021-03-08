@@ -39,7 +39,7 @@ import 'flutter_essentials_kit_localizations_it.dart';
 ///   # Internationalization support.
 ///   flutter_localizations:
 ///     sdk: flutter
-///   intl: 0.16.1
+///   intl: any # Use the pinned version from flutter_localizations
 ///
 ///   # rest of dependencies
 /// ```
@@ -64,12 +64,12 @@ import 'flutter_essentials_kit_localizations_it.dart';
 /// be consistent with the languages listed in the FlutterEssentialsKitLocalizations.supportedLocales
 /// property.
 abstract class FlutterEssentialsKitLocalizations {
-  FlutterEssentialsKitLocalizations(String locale) : assert(locale != null), localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  FlutterEssentialsKitLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   // ignore: unused_field
   final String localeName;
 
-  static FlutterEssentialsKitLocalizations of(BuildContext context) {
+  static FlutterEssentialsKitLocalizations? of(BuildContext context) {
     return Localizations.of<FlutterEssentialsKitLocalizations>(context, FlutterEssentialsKitLocalizations);
   }
 
@@ -100,46 +100,88 @@ abstract class FlutterEssentialsKitLocalizations {
     Locale('it')
   ];
 
-  // The rule confirmed error message
+  /// The rule confirmed error message
+  ///
+  /// In en, this message translates to:
+  /// **'This field must be confirmed'**
   String get ruleConfirmed;
 
-  // The rule email error message
+  /// The rule email error message
+  ///
+  /// In en, this message translates to:
+  /// **'This email seems to be not valid'**
   String get ruleEmail;
 
-  // The rule max string error message
+  /// The rule max string error message
+  ///
+  /// In en, this message translates to:
+  /// **'{max, plural, =1{The text length can\'t be greater than {max} character} other{The text length can\'t be greater than {max} characters}}'**
   String ruleMaxStringLength(int max);
 
-  // The rule max number error message
+  /// The rule max number error message
+  ///
+  /// In en, this message translates to:
+  /// **'{max, plural, other{The number can\'t be greater than {max}}}'**
   String ruleMaxNumber(int max);
 
-  // The rule max list length error message
+  /// The rule max list length error message
+  ///
+  /// In en, this message translates to:
+  /// **'{max, plural, other{The list length can\'t be greater than {max}}}'**
   String ruleMaxListLength(int max);
 
-  // The rule min string error message
+  /// The rule min string error message
+  ///
+  /// In en, this message translates to:
+  /// **'{min, plural, =1{The text length can\'t be less than {min} character} other{The text length can\'t be less than {max} characters}}'**
   String ruleMinStringLength(int min);
 
-  // The rule min number error message
+  /// The rule min number error message
+  ///
+  /// In en, this message translates to:
+  /// **'{min, plural, other{The number can\'t be less than {min}}}'**
   String ruleMinNumber(int min);
 
-  // The rule min list length error message
+  /// The rule min list length error message
+  ///
+  /// In en, this message translates to:
+  /// **'{min, plural, other{The list length can\'t be less than {min}}}'**
   String ruleMinListLength(int min);
 
-  // The rule regex error message
+  /// The rule regex error message
+  ///
+  /// In en, this message translates to:
+  /// **'This value is not valid'**
   String get ruleRegex;
 
-  // The rule required error message
+  /// The rule required error message
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
   String get ruleRequired;
 
-  // The rule same error message
+  /// The rule same error message
+  ///
+  /// In en, this message translates to:
+  /// **'The fields are not the same'**
   String get ruleSame;
 
-  // The rule size string length error message
+  /// The rule size string length error message
+  ///
+  /// In en, this message translates to:
+  /// **'{size, plural, =1{The text length must be {size} character} other{The text length must be {size} characters}}'**
   String ruleSizeStringLength(int size);
 
-  // The rule size number error message
+  /// The rule size number error message
+  ///
+  /// In en, this message translates to:
+  /// **'{size, plural, other{The number must be {size}}}'**
   String ruleSizeNumber(int size);
 
-  // The rule size list length error message
+  /// The rule size list length error message
+  ///
+  /// In en, this message translates to:
+  /// **'{size, plural, other{The list length must be {size}}}'**
   String ruleSizeListLength(int size);
 }
 
@@ -160,16 +202,21 @@ class _FlutterEssentialsKitLocalizationsDelegate extends LocalizationsDelegate<F
 
 FlutterEssentialsKitLocalizations _lookupFlutterEssentialsKitLocalizations(Locale locale) {
   
-  
-  
-  // Lookup logic when only language code is specified.
-  switch (locale.languageCode) {
-    case 'de': return FlutterEssentialsKitLocalizationsDe();
+
+
+// Lookup logic when only language code is specified.
+switch (locale.languageCode) {
+  case 'de': return FlutterEssentialsKitLocalizationsDe();
     case 'en': return FlutterEssentialsKitLocalizationsEn();
     case 'fr': return FlutterEssentialsKitLocalizationsFr();
     case 'it': return FlutterEssentialsKitLocalizationsIt();
-  }
+}
 
-  assert(false, 'FlutterEssentialsKitLocalizations.delegate failed to load unsupported locale "$locale"');
-  return null;
+
+  throw FlutterError(
+    'FlutterEssentialsKitLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
 }

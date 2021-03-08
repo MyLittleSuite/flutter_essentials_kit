@@ -30,7 +30,7 @@ void main() {
     };
     final elements = [1, 2, 3, 1, 2, 3, 1, 2, 3];
 
-    final result = elements.groupBy(
+    final result = elements.groupBy<int>(
       (element) => element,
       sortingCriteria: (first, second) => first.compareTo(second),
     );
