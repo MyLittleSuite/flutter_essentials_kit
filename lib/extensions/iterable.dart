@@ -5,7 +5,7 @@ extension IterableFiltering<T> on Iterable<T> {
   /// Example:
   ///   before: [1, 2, null, "12", null, 9129, "ciao", null, "come", null]
   ///   after: [1, 2, "12", 9129, "ciao", "come"]
-  Iterable<T> filterNull<S>() => where((element) => element != null);
+  Iterable<T> filterNull() => where((element) => element != null);
 }
 
 /// Grouping elements using a criteria.
