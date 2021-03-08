@@ -1,4 +1,4 @@
-## 2.0.0
+## 2.0.0-dev.0
 * Add support for null safety and Flutter 2.
 
 ## 1.4.0
