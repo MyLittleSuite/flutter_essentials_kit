@@ -24,6 +24,7 @@ export 'misc/data_rules/regex_rule.dart';
 export 'misc/data_rules/required_rule.dart';
 export 'misc/data_rules/same_rule.dart';
 export 'misc/data_rules/size_rule.dart';
+export 'misc/data_rules/trim_rule.dart';
 export 'misc/localized.dart';
 export 'misc/two_way_binding.dart';
 export 'widgets/courtesy_widget.dart';

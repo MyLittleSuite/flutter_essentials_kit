@@ -8,6 +8,7 @@ class TwoWayBindingPage extends StatelessWidget {
 
   TwoWayBindingPage() {
     _binding = TwoWayBinding<String>()
+        .bindDataRule(TrimRule())
         .bindDataRule(RequiredRule())
         .bindDataRule(SizeRule(10));
     _sameBinding = TwoWayBinding<String>().bindDataRule2(_binding, SameRule());
