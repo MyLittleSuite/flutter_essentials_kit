@@ -36,4 +36,28 @@ void main() {
     );
     expect(result, equals(expectedElements));
   });
+
+  test('min', () {
+    expect(<int>[].min(ifEmpty: 0), equals(0));
+    expect([1].min(ifEmpty: 0), equals(1));
+    expect([1, 2, -1, 0].min(ifEmpty: -100), equals(-1));
+  });
+
+  test('max', () {
+    expect(<int>[].max(ifEmpty: 0), equals(0));
+    expect([1].max(ifEmpty: 0), equals(1));
+    expect([1, 2, -1, 0].max(ifEmpty: -100), equals(2));
+  });
+
+  test('sum', () {
+    expect(<int>[].sum(ifEmpty: 0), equals(0));
+    expect([1].sum(ifEmpty: 0), equals(1));
+    expect([1, 2, 1, 0].sum(ifEmpty: -100), equals(4));
+  });
+
+  test('subtract', () {
+    expect(<int>[].subtract(ifEmpty: 0), equals(0));
+    expect([1].subtract(ifEmpty: 0), equals(1));
+    expect([1, 2, 3, 0].subtract(ifEmpty: -100), equals(-4));
+  });
 }
