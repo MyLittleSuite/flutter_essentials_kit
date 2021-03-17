@@ -1,3 +1,7 @@
+## 2.0.0
+* Add support of TrimRule.
+* Add support of some operations on Iterable<num>.
+
 ## 2.0.0-dev.0
 * Add support for null safety and Flutter 2.
 
