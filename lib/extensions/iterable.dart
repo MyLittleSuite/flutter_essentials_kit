@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:math' as math;
 
 extension IterableFiltering<T> on Iterable<T> {
   /// Remove all null elements in this iterable.
@@ -28,4 +29,34 @@ extension IterableGrouping<T> on Iterable<T> {
             () => <T>[],
           ).add(element),
       );
+}
+
+extension IterableNum<N extends num> on Iterable<N> {
+  /// Returns the lesser value in this iterable.
+  /// If the iterable is empty, this function returns the specified ifEmpty parameter.
+  N min({
+    required N ifEmpty,
+  }) =>
+      isEmpty ? ifEmpty : reduce(math.min);
+
+  /// Returns the greater value in this iterable.
+  /// If the iterable is empty, this function returns the specified ifEmpty parameter.
+  N max({
+    required N ifEmpty,
+  }) =>
+      isEmpty ? ifEmpty : reduce(math.max);
+
+  /// Returns the sum of all values in this iterable.
+  /// If the iterable is empty, this function returns the specified ifEmpty parameter.
+  N sum({
+    required N ifEmpty,
+  }) =>
+      isEmpty ? ifEmpty : reduce((value, element) => (value + element) as N);
+
+  /// Returns the subtraction of all values in this iterable.
+  /// If the iterable is empty, this function returns the specified ifEmpty parameter.
+  N subtract({
+    required N ifEmpty,
+  }) =>
+      isEmpty ? ifEmpty : reduce((value, element) => (value - element) as N);
 }
