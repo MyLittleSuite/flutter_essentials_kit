@@ -28,4 +28,5 @@
     * `RequiredRule`, data required.
     * `SameRule`, same data of another field.
     * `SizeRule`, size value possible.
+    * `TrimRule`, get the string without any leading and trailing whitespace.
 </details>
