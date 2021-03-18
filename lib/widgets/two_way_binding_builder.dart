@@ -31,7 +31,7 @@ class TwoWayBindingBuilder<T> extends StatelessWidget {
           binding.textController,
           snapshot.data,
           binding.change,
-          snapshot.error as Localized,
+          snapshot.error as Localized?,
         ),
       );
 }
