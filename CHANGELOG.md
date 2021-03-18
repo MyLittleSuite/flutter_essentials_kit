@@ -1,3 +1,8 @@
+## 2.1.0
+* Add support of let (kotlin function).
+* Add support of leading widget in CourtesyWidget, with apdding and margin customizations.
+* Fix type cast of error in TwoWayBindingBuilder.
+
 ## 2.0.0
 * Add support of TrimRule.
 * Add support of some operations on Iterable<num>.
