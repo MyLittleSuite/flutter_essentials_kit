@@ -14,6 +14,7 @@ export 'exceptions/localized_exception.dart';
 export 'extensions/color.dart';
 export 'extensions/date_time.dart';
 export 'extensions/iterable.dart';
+export 'extensions/commons.dart';
 export 'localizations/flutter_essentials_kit_localizations.dart';
 export 'misc/data_rules/confirmed_rule.dart';
 export 'misc/data_rules/data_rule.dart';
