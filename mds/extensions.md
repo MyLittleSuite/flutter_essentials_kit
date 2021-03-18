@@ -7,6 +7,12 @@
 </details>
 
 <details>
+    <summary>Commons</summary>
+    
+    * `let`, calls the specified function block with this value as its argument and returns its result.
+</details>
+
+<details>
     <summary>DateTime</summary>
     
     final date = DateTime.now() // => Example: "12/03/2020 23:40:23"
