@@ -18,71 +18,122 @@ void main() {
     action = faker.lorem.word();
   });
 
-  testWidgets('with only main title', (WidgetTester tester) async {
-    await tester.pumpWidget(TestWidget(child: CourtesyWidget(title: title)));
+  testWidgets(
+    'with only main title',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(TestWidget(child: CourtesyWidget(title: title)));
 
-    expect(find.text(title), findsOneWidget);
-    expect(find.text(message), findsNothing);
+      expect(find.text(title), findsOneWidget);
+      expect(find.text(message), findsNothing);
 
-    final actionFinder = find.widgetWithText(ElevatedButton, action);
-    expect(actionFinder, findsNothing);
-  });
+      final actionFinder = find.widgetWithText(ElevatedButton, action);
+      expect(actionFinder, findsNothing);
+    },
+  );
 
-  testWidgets('with main title and message', (WidgetTester tester) async {
-    await tester.pumpWidget(TestWidget(
-      child: CourtesyWidget(
-        title: title,
-        message: message,
-      ),
-    ));
+  testWidgets(
+    'with main title and message',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(TestWidget(
+        child: CourtesyWidget(
+          title: title,
+          message: message,
+        ),
+      ));
 
-    expect(find.text(title), findsOneWidget);
-    expect(find.text(message), findsOneWidget);
+      expect(find.text(title), findsOneWidget);
+      expect(find.text(message), findsOneWidget);
 
-    final actionFinder = find.widgetWithText(ElevatedButton, action);
-    expect(actionFinder, findsNothing);
-  });
+      final actionFinder = find.widgetWithText(ElevatedButton, action);
+      expect(actionFinder, findsNothing);
+    },
+  );
 
-  testWidgets('with main title, message, disabled action',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(TestWidget(
-      child: CourtesyWidget(
-        title: title,
-        message: message,
-        action: action,
-      ),
-    ));
+  testWidgets(
+    'with main title, message, disabled action',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(TestWidget(
+        child: CourtesyWidget(
+          title: title,
+          message: message,
+          action: action,
+        ),
+      ));
 
-    expect(find.text(title), findsOneWidget);
-    expect(find.text(message), findsOneWidget);
+      expect(find.text(title), findsOneWidget);
+      expect(find.text(message), findsOneWidget);
 
-    final actionFinder = find.widgetWithText(ElevatedButton, action);
-    expect(actionFinder, findsOneWidget);
+      final actionFinder = find.widgetWithText(ElevatedButton, action);
+      expect(actionFinder, findsOneWidget);
 
-    final actionButton = actionFinder.evaluate().first.widget as ElevatedButton;
-    expect(actionButton is ElevatedButton, isTrue);
-    expect(actionButton.enabled, isFalse);
-  });
+      final actionButton =
+      actionFinder
+          .evaluate()
+          .first
+          .widget as ElevatedButton;
+      expect(actionButton is ElevatedButton, isTrue);
+      expect(actionButton.enabled, isFalse);
+    },
+  );
 
-  testWidgets('with main title, message, enable action',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(TestWidget(
-      child: CourtesyWidget(
-        title: title,
-        message: message,
-        action: action,
-        onPressed: () {},
-      ),
-    ));
+  testWidgets(
+    'with main title, message, enabled action',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(TestWidget(
+        child: CourtesyWidget(
+          title: title,
+          message: message,
+          action: action,
+          onPressed: () {},
+        ),
+      ));
 
-    expect(find.text(title), findsOneWidget);
-    expect(find.text(message), findsOneWidget);
+      expect(find.text(title), findsOneWidget);
+      expect(find.text(message), findsOneWidget);
 
-    final actionFinder = find.widgetWithText(ElevatedButton, action);
-    expect(actionFinder, findsOneWidget);
+      final actionFinder = find.widgetWithText(ElevatedButton, action);
+      expect(actionFinder, findsOneWidget);
 
-    final actionButton = actionFinder.evaluate().first.widget as ElevatedButton;
-    expect(actionButton is ElevatedButton, isTrue);
-    expect(actionButton.enabled, isTrue);
-  });
+      final actionButton =
+      actionFinder
+          .evaluate()
+          .first
+          .widget as ElevatedButton;
+      expect(actionButton is ElevatedButton, isTrue);
+      expect(actionButton.enabled, isTrue);
+    },
+  );
+
+  testWidgets(
+    'with leading, main title, message, disabled action',
+        (WidgetTester tester) async {
+      final leadingKey = Key('LEADING');
+
+      await tester.pumpWidget(TestWidget(
+        child: CourtesyWidget(
+          leading: Container(
+              key: leadingKey
+          ),
+          title: title,
+          message: message,
+          action: action,
+        ),
+      ));
+
+      expect(find.byKey(leadingKey), findsOneWidget);
+      expect(find.text(title), findsOneWidget);
+      expect(find.text(message), findsOneWidget);
+
+      final actionFinder = find.widgetWithText(ElevatedButton, action);
+      expect(actionFinder, findsOneWidget);
+
+      final actionButton =
+      actionFinder
+          .evaluate()
+          .first
+          .widget as ElevatedButton;
+      expect(actionButton is ElevatedButton, isTrue);
+      expect(actionButton.enabled, isFalse);
+    },
+  );
 }

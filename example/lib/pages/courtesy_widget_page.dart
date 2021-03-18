@@ -4,7 +4,7 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 class CourtesyWidgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => DefaultTabController(
-        length: 4,
+        length: 6,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
@@ -14,6 +14,8 @@ class CourtesyWidgetPage extends StatelessWidget {
                 Tab(text: 'Title + message'),
                 Tab(text: 'Title + message + disabled action'),
                 Tab(text: 'Title + message + action'),
+                Tab(text: 'leading + title + message + disabled action'),
+                Tab(text: 'custom margin between widgets'),
               ],
             ),
           ),
@@ -47,6 +49,27 @@ class CourtesyWidgetPage extends StatelessWidget {
                     ),
                   );
                 },
+              ),
+              CourtesyWidget(
+                leading: Icon(
+                  Icons.warning_rounded,
+                  color: Colors.orange,
+                  size: 72,
+                ),
+                title: 'Just a title',
+                message: 'Just a message',
+                action: 'Just an action',
+              ),
+              CourtesyWidget(
+                leading: Icon(
+                  Icons.warning_rounded,
+                  color: Colors.orange,
+                  size: 72,
+                ),
+                title: 'Just a title',
+                message: 'Just a message',
+                action: 'Just an action',
+                marginBetweenWidgets: EdgeInsets.all(32),
               ),
             ],
           ),
