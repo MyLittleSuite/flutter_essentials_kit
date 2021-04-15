@@ -79,5 +79,5 @@ void main() {
 
 class _FakeRule<T> extends DataRule<T, T> {
   @override
-  T? process(T? data) => data;
+  T process(T data) => data;
 }
