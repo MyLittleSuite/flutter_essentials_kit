@@ -1,3 +1,6 @@
+## 1.4.1
+* Fix stream broadcast in `bindDataRule2`.
+
 ## 1.4.0
 * Add textColorBasedOnLuminance to calculate the correct text color, based on the background one.
 * Add groupBy on Iterable.
