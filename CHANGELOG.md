@@ -1,3 +1,6 @@
+## 2.1.1
+* Fix stream broadcast in `bindDataRule2`.
+
 ## 2.1.0
 * Add support of let (kotlin function).
 * Add support of leading widget in CourtesyWidget, with apdding and margin customizations.
