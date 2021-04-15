@@ -53,6 +53,11 @@ void main() {
     await futureExpect;
   });
 
+  test('bindDataRule check is broadcast', () async {
+    binding = binding.bindDataRule(_FakeRule());
+    expect(binding.stream.isBroadcast, isTrue);
+  });
+
   test('bindDataRule2 with error', () async {
     final binding2 = TwoWayBinding<String>().bindDataRule2(binding, SameRule());
 
@@ -65,4 +70,14 @@ void main() {
     binding2.value = '';
     await futureExpect;
   });
+
+  test('bindDataRule2 check is broadcast', () async {
+    binding = binding.bindDataRule2(binding, _FakeRule());
+    expect(binding.stream.isBroadcast, isTrue);
+  });
+}
+
+class _FakeRule<T> extends DataRule<T, T> {
+  @override
+  T? process(T? data) => data;
 }

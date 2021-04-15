@@ -63,7 +63,7 @@ class TwoWayBinding<T> {
       _stream,
       second._stream,
       (first, second) => Tuple2(first, second),
-    ).transform(StreamTransformer.fromHandlers(
+    ).asBroadcastStream().transform(StreamTransformer.fromHandlers(
       handleData: (data, sink) {
         try {
           sink.add(rule.process(data));
