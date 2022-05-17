@@ -101,6 +101,11 @@ class TwoWayBinding<T> {
 
   Future<void> _registerSubscription() async {
     await _streamSubscription?.cancel();
-    _streamSubscription = _stream.listen((value) => this._value = value);
+    _streamSubscription = _stream.listen(
+      (value) => this._value = value,
+      onError: (_, __) {},
+      onDone: () {},
+      cancelOnError: false,
+    );
   }
 }

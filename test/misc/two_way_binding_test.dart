@@ -28,10 +28,13 @@ void main() {
     });
 
     final futureExpect = expectLater(binding.stream, emitsInOrder(values));
-    values.forEach((value) {
+    for (final value in values) {
       binding.value = value;
+
+      await Future.delayed(Duration(milliseconds: 250));
+
       expect(binding.value, equals(value));
-    });
+    }
     await futureExpect;
   });
 
