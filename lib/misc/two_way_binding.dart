@@ -14,18 +14,23 @@ class TwoWayBinding<T> {
   late BehaviorSubject<T?> _subject;
   late Stream<T?> _stream;
 
+  StreamSubscription? _streamSubscription;
+  T? _value;
+
   TwoWayBinding({T? seeded}) {
     _subject = seeded != null
         ? BehaviorSubject<T?>.seeded(seeded)
         : BehaviorSubject<T?>();
-    _stream = _subject.stream;
+    _stream = _subject.stream.asBroadcastStream();
+
+    _registerSubscription();
   }
 
   /// Transform this two way binding in stream.
   Stream<T?> get stream => _stream;
 
   /// Returns the current value.
-  T? get value => _subject.value;
+  T? get value => _value;
 
   /// Set a new value. It will override the current value.
   set value(T? newValue) {
@@ -43,8 +48,9 @@ class TwoWayBinding<T> {
         callback(data);
         sink.add(data);
       }),
-    );
+    ).asBroadcastStream();
 
+    _registerSubscription();
     return this;
   }
 
@@ -58,8 +64,9 @@ class TwoWayBinding<T> {
           sink.addError(error);
         }
       }),
-    );
+    ).asBroadcastStream();
 
+    _registerSubscription();
     return this;
   }
 
@@ -82,9 +89,18 @@ class TwoWayBinding<T> {
       },
     ));
 
+    _registerSubscription();
     return this;
   }
 
   /// Closes the two way binding.
-  Future<void> close() async => await _subject.close();
+  Future<void> close() async {
+    await _streamSubscription?.cancel();
+    await _subject.close();
+  }
+
+  Future<void> _registerSubscription() async {
+    await _streamSubscription?.cancel();
+    _streamSubscription = _stream.listen((value) => this._value = value);
+  }
 }

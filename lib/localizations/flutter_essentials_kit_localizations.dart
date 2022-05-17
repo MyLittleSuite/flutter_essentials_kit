@@ -1,7 +1,6 @@
 
 import 'dart:async';
 
-// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -66,11 +65,10 @@ import 'flutter_essentials_kit_localizations_it.dart';
 abstract class FlutterEssentialsKitLocalizations {
   FlutterEssentialsKitLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
-  // ignore: unused_field
   final String localeName;
 
-  static FlutterEssentialsKitLocalizations? of(BuildContext context) {
-    return Localizations.of<FlutterEssentialsKitLocalizations>(context, FlutterEssentialsKitLocalizations);
+  static FlutterEssentialsKitLocalizations of(BuildContext context) {
+    return Localizations.of<FlutterEssentialsKitLocalizations>(context, FlutterEssentialsKitLocalizations)!;
   }
 
   static const LocalizationsDelegate<FlutterEssentialsKitLocalizations> delegate = _FlutterEssentialsKitLocalizationsDelegate();
@@ -116,37 +114,37 @@ abstract class FlutterEssentialsKitLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{max, plural, =1{The text length can\'t be greater than {max} character} other{The text length can\'t be greater than {max} characters}}'**
-  String ruleMaxStringLength(int max);
+  String ruleMaxStringLength(num max);
 
   /// The rule max number error message
   ///
   /// In en, this message translates to:
   /// **'{max, plural, other{The number can\'t be greater than {max}}}'**
-  String ruleMaxNumber(int max);
+  String ruleMaxNumber(num max);
 
   /// The rule max list length error message
   ///
   /// In en, this message translates to:
   /// **'{max, plural, other{The list length can\'t be greater than {max}}}'**
-  String ruleMaxListLength(int max);
+  String ruleMaxListLength(num max);
 
   /// The rule min string error message
   ///
   /// In en, this message translates to:
   /// **'{min, plural, =1{The text length can\'t be less than {min} character} other{The text length can\'t be less than {max} characters}}'**
-  String ruleMinStringLength(int min);
+  String ruleMinStringLength(num min);
 
   /// The rule min number error message
   ///
   /// In en, this message translates to:
   /// **'{min, plural, other{The number can\'t be less than {min}}}'**
-  String ruleMinNumber(int min);
+  String ruleMinNumber(num min);
 
   /// The rule min list length error message
   ///
   /// In en, this message translates to:
   /// **'{min, plural, other{The list length can\'t be less than {min}}}'**
-  String ruleMinListLength(int min);
+  String ruleMinListLength(num min);
 
   /// The rule regex error message
   ///
@@ -170,19 +168,19 @@ abstract class FlutterEssentialsKitLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{size, plural, =1{The text length must be {size} character} other{The text length must be {size} characters}}'**
-  String ruleSizeStringLength(int size);
+  String ruleSizeStringLength(num size);
 
   /// The rule size number error message
   ///
   /// In en, this message translates to:
   /// **'{size, plural, other{The number must be {size}}}'**
-  String ruleSizeNumber(int size);
+  String ruleSizeNumber(num size);
 
   /// The rule size list length error message
   ///
   /// In en, this message translates to:
   /// **'{size, plural, other{The list length must be {size}}}'**
-  String ruleSizeListLength(int size);
+  String ruleSizeListLength(num size);
 }
 
 class _FlutterEssentialsKitLocalizationsDelegate extends LocalizationsDelegate<FlutterEssentialsKitLocalizations> {
@@ -190,7 +188,7 @@ class _FlutterEssentialsKitLocalizationsDelegate extends LocalizationsDelegate<F
 
   @override
   Future<FlutterEssentialsKitLocalizations> load(Locale locale) {
-    return SynchronousFuture<FlutterEssentialsKitLocalizations>(_lookupFlutterEssentialsKitLocalizations(locale));
+    return SynchronousFuture<FlutterEssentialsKitLocalizations>(lookupFlutterEssentialsKitLocalizations(locale));
   }
 
   @override
@@ -200,18 +198,16 @@ class _FlutterEssentialsKitLocalizationsDelegate extends LocalizationsDelegate<F
   bool shouldReload(_FlutterEssentialsKitLocalizationsDelegate old) => false;
 }
 
-FlutterEssentialsKitLocalizations _lookupFlutterEssentialsKitLocalizations(Locale locale) {
-  
+FlutterEssentialsKitLocalizations lookupFlutterEssentialsKitLocalizations(Locale locale) {
 
 
-// Lookup logic when only language code is specified.
-switch (locale.languageCode) {
-  case 'de': return FlutterEssentialsKitLocalizationsDe();
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'de': return FlutterEssentialsKitLocalizationsDe();
     case 'en': return FlutterEssentialsKitLocalizationsEn();
     case 'fr': return FlutterEssentialsKitLocalizationsFr();
     case 'it': return FlutterEssentialsKitLocalizationsIt();
-}
-
+  }
 
   throw FlutterError(
     'FlutterEssentialsKitLocalizations.delegate failed to load unsupported locale "$locale". This is likely '

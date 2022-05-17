@@ -71,7 +71,7 @@ void main() {
           .evaluate()
           .first
           .widget as ElevatedButton;
-      expect(actionButton is ElevatedButton, isTrue);
+      expect(actionButton, isInstanceOf<ElevatedButton>());
       expect(actionButton.enabled, isFalse);
     },
   );
@@ -99,7 +99,7 @@ void main() {
           .evaluate()
           .first
           .widget as ElevatedButton;
-      expect(actionButton is ElevatedButton, isTrue);
+      expect(actionButton, isInstanceOf<ElevatedButton>());
       expect(actionButton.enabled, isTrue);
     },
   );
@@ -132,7 +132,7 @@ void main() {
           .evaluate()
           .first
           .widget as ElevatedButton;
-      expect(actionButton is ElevatedButton, isTrue);
+      expect(actionButton, isInstanceOf<ElevatedButton>());
       expect(actionButton.enabled, isFalse);
     },
   );

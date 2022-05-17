@@ -11,19 +11,19 @@ class MinRuleError extends DataRuleError {
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleMinStringLength(min),
+                  .ruleMinStringLength(min),
         );
 
   MinRuleError.number(int min)
       : this(
           localizedMessage: (context) =>
-              FlutterEssentialsKitLocalizations.of(context)?.ruleMinNumber(min),
+              FlutterEssentialsKitLocalizations.of(context).ruleMinNumber(min),
         );
 
   MinRuleError.list(int min)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleMinListLength(min),
+                  .ruleMinListLength(min),
         );
 }

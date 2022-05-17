@@ -11,5 +11,5 @@ class ConfirmedRuleError extends DataRuleError {
   @override
   String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context)?.ruleConfirmed;
+      FlutterEssentialsKitLocalizations.of(context).ruleConfirmed;
 }

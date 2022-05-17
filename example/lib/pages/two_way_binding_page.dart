@@ -12,7 +12,7 @@ class TwoWayBindingPage extends StatelessWidget {
     _binding = TwoWayBinding<String>()
         .bindDataRule(TrimRule())
         .bindDataRule(RequiredRule())
-        .bindDataRule(SizeRule(10));
+        .bindDataRule(LowerCaseRule());
     _sameBinding = TwoWayBinding<String>().bindDataRule2(_binding, SameRule());
   }
 
@@ -26,12 +26,12 @@ class TwoWayBindingPage extends StatelessWidget {
               binding: _noCheckBinding,
               builder: (context, controller, data, onChanged, error) =>
                   TextField(
-                    controller: controller,
-                    onChanged: onChanged,
-                    decoration: InputDecoration(
-                      errorText: error?.localizedString(context),
-                    ),
-                  ),
+                controller: controller,
+                onChanged: onChanged,
+                decoration: InputDecoration(
+                  errorText: error?.localizedString(context),
+                ),
+              ),
             ),
             Container(height: 16),
             TwoWayBindingBuilder<String>(
@@ -48,8 +48,12 @@ class TwoWayBindingPage extends StatelessWidget {
             Container(height: 16),
             TwoWayBindingBuilder<String>(
               binding: _binding,
-              builder: (context, controller, data, onChanged, error) =>
-                  Text(data ?? 'None'),
+              builder: (context, controller, data, onChanged, error) => Column(
+                children: [
+                  Text("${data ?? 'None'}"),
+                  Text("${_binding.value ?? 'None'}"),
+                ],
+              ),
             ),
             Container(height: 16),
             TwoWayBindingBuilder<String>(

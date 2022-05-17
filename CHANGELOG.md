@@ -1,3 +1,9 @@
+## 2.2.0
+* Add `LowerCaseRule` and `UpperCaseRule` as new rules.
+* Update rxdart to 0.27.3.
+* Update min dart sdk to 2.16.0.
+* Update code for Flutter 3.0.0.
+
 ## 2.1.1
 * Fix stream broadcast in `bindDataRule2`.
 

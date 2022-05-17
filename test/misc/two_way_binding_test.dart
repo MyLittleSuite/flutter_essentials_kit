@@ -54,6 +54,14 @@ void main() {
     await futureExpect;
   });
 
+  test('bindDataRule pipeline', () async {
+    binding = binding.bindDataRule(TrimRule()).bindDataRule(LowerCaseRule());
+
+    final futureExpect = expectLater(binding.stream, emitsInOrder(values));
+    values.forEach((value) => binding.change(" ${value?.toUpperCase()} "));
+    await futureExpect;
+  });
+
   test('bindDataRule check is broadcast', () async {
     binding = binding.bindDataRule(_FakeRule());
     expect(binding.stream.isBroadcast, isTrue);

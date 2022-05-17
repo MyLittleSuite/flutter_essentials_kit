@@ -1,9 +1,7 @@
 
-// ignore: unused_import
+
 import 'package:intl/intl.dart' as intl;
 import 'flutter_essentials_kit_localizations.dart';
-
-// ignore_for_file: unnecessary_brace_in_string_interps
 
 /// The translations for French (`fr`).
 class FlutterEssentialsKitLocalizationsFr extends FlutterEssentialsKitLocalizations {
@@ -16,58 +14,58 @@ class FlutterEssentialsKitLocalizationsFr extends FlutterEssentialsKitLocalizati
   String get ruleEmail => 'Cet email ne semble pas valide';
 
   @override
-  String ruleMaxStringLength(int max) {
+  String ruleMaxStringLength(num max) {
     return intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      one: 'La longueur du texte ne peut pas être supérieure à ${max} caractère',
-      other: 'La longueur du texte ne peut pas dépasser ${max} caractères',
+      one: 'La longueur du texte ne peut pas être supérieure à $max caractère',
+      other: 'La longueur du texte ne peut pas dépasser $max caractères',
     );
   }
 
   @override
-  String ruleMaxNumber(int max) {
+  String ruleMaxNumber(num max) {
     return intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      other: 'La valeur du nombre ne peut pas être supérieure à ${max}',
+      other: 'La valeur du nombre ne peut pas être supérieure à $max',
     );
   }
 
   @override
-  String ruleMaxListLength(int max) {
+  String ruleMaxListLength(num max) {
     return intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      other: 'La taille de la liste ne peut pas être supérieure à ${max}',
+      other: 'La taille de la liste ne peut pas être supérieure à $max',
     );
   }
 
   @override
-  String ruleMinStringLength(int min) {
+  String ruleMinStringLength(num min) {
     return intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      one: 'La longueur du texte ne peut pas être inférieure à ${min} caractère',
-      other: 'La longueur du texte ne peut pas être inférieure à ${min} caractères',
+      one: 'La longueur du texte ne peut pas être inférieure à $min caractère',
+      other: 'La longueur du texte ne peut pas être inférieure à $min caractères',
     );
   }
 
   @override
-  String ruleMinNumber(int min) {
+  String ruleMinNumber(num min) {
     return intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      other: 'La valeur du nombre ne peut pas être inférieure à ${min}',
+      other: 'La valeur du nombre ne peut pas être inférieure à $min',
     );
   }
 
   @override
-  String ruleMinListLength(int min) {
+  String ruleMinListLength(num min) {
     return intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      other: 'La taille de la liste ne peut pas être inférieure à ${min}',
+      other: 'La taille de la liste ne peut pas être inférieure à $min',
     );
   }
 
@@ -81,30 +79,30 @@ class FlutterEssentialsKitLocalizationsFr extends FlutterEssentialsKitLocalizati
   String get ruleSame => 'Les champs ne correspondent pas';
 
   @override
-  String ruleSizeStringLength(int size) {
+  String ruleSizeStringLength(num size) {
     return intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      one: 'La longueur du texte doit être de ${size} caractère',
-      other: 'La longueur du texte doit être de ${size} caractères',
+      one: 'La longueur du texte doit être de $size caractère',
+      other: 'La longueur du texte doit être de $size caractères',
     );
   }
 
   @override
-  String ruleSizeNumber(int size) {
+  String ruleSizeNumber(num size) {
     return intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      other: 'La valeur numérique doit être ${size}',
+      other: 'La valeur numérique doit être $size',
     );
   }
 
   @override
-  String ruleSizeListLength(int size) {
+  String ruleSizeListLength(num size) {
     return intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      other: 'La taille de la liste doit être de ${size}',
+      other: 'La taille de la liste doit être de $size',
     );
   }
 }

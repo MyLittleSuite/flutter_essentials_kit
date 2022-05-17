@@ -11,5 +11,5 @@ class SameRuleError extends DataRuleError {
   @override
   String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context)?.ruleSame;
+      FlutterEssentialsKitLocalizations.of(context).ruleSame;
 }

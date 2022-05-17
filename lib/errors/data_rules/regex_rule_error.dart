@@ -11,5 +11,5 @@ class RegexRuleError extends DataRuleError {
   @override
   String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context)?.ruleRegex;
+      FlutterEssentialsKitLocalizations.of(context).ruleRegex;
 }

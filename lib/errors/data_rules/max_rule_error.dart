@@ -11,19 +11,19 @@ class MaxRuleError extends DataRuleError {
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleMaxStringLength(max),
+                  .ruleMaxStringLength(max),
         );
 
   MaxRuleError.number(int max)
       : this(
           localizedMessage: (context) =>
-              FlutterEssentialsKitLocalizations.of(context)?.ruleMaxNumber(max),
+              FlutterEssentialsKitLocalizations.of(context).ruleMaxNumber(max),
         );
 
   MaxRuleError.list(int max)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleMaxListLength(max),
+                  .ruleMaxListLength(max),
         );
 }

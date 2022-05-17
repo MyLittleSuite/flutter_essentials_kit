@@ -11,5 +11,5 @@ class RequiredRuleError extends DataRuleError {
   @override
   String? localizedString(BuildContext context) =>
       super.localizedString(context) ??
-      FlutterEssentialsKitLocalizations.of(context)?.ruleRequired;
+      FlutterEssentialsKitLocalizations.of(context).ruleRequired;
 }

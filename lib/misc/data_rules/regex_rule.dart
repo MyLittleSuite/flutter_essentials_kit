@@ -1,4 +1,3 @@
-import 'package:flutter_essentials_kit/errors/data_rules/regex_rule_error.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 
 /// Definition of the valid data using regex.

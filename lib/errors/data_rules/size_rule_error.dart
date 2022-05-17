@@ -11,20 +11,20 @@ class SizeRuleError extends DataRuleError {
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleSizeStringLength(size),
+                  .ruleSizeStringLength(size),
         );
 
   SizeRuleError.number(int size)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleSizeNumber(size),
+                  .ruleSizeNumber(size),
         );
 
   SizeRuleError.list(int size)
       : this(
           localizedMessage: (context) =>
               FlutterEssentialsKitLocalizations.of(context)
-                  ?.ruleSizeListLength(size),
+                  .ruleSizeListLength(size),
         );
 }

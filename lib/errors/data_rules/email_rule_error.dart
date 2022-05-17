@@ -12,5 +12,5 @@ class EmailRuleError extends RegexRuleError {
   @override
   String? localizedString(BuildContext context) => localizedMessage != null
       ? super.localizedString(context)
-      : FlutterEssentialsKitLocalizations.of(context)?.ruleEmail;
+      : FlutterEssentialsKitLocalizations.of(context).ruleEmail;
 }
