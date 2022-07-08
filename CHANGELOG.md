@@ -1,3 +1,6 @@
+## 2.3.1
+* Remove `onErrorReturn(false)` from `TwoWayBindingUtils.validate`.
+
 ## 2.3.0
 * Bump `rxdart` to ^0.27.4.
 * Enhance implementation of `TwoWayBinding`, adding a standard function to validate bindings.

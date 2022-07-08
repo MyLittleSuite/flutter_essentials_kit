@@ -16,11 +16,11 @@ void main() {
     expect(
       TwoWayBindingUtils.validate([binding, binding2]),
       emitsInOrder([
-        true,
-        false,
-        false,
-        false,
-        true,
+        emits(true),
+        emitsError(isInstanceOf<RequiredRuleError>()),
+        emitsError(isInstanceOf<RequiredRuleError>()),
+        emits(false),
+        emits(true),
       ]),
     );
 
