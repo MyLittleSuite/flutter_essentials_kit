@@ -30,3 +30,9 @@
     * `SizeRule`, size value possible.
     * `TrimRule`, get the string without any leading and trailing whitespace.
 </details>
+
+<details>
+    <summary>TwoWayBindingUtils</summary>
+
+    * `TwoWayBindingUtils.validate()`, perform a validation against the provided bindings.
+</details>

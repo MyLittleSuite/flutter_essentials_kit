@@ -15,6 +15,7 @@ export 'extensions/color.dart';
 export 'extensions/commons.dart';
 export 'extensions/date_time.dart';
 export 'extensions/iterable.dart';
+export 'misc/two_way_binding_utils.dart';
 export 'localizations/flutter_essentials_kit_localizations.dart';
 export 'misc/data_rules/confirmed_rule.dart';
 export 'misc/data_rules/data_rule.dart';

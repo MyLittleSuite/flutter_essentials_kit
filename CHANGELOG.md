@@ -1,3 +1,7 @@
+## 2.3.0
+* Bump `rxdart` to ^0.27.4.
+* Enhance implementation of `TwoWayBinding`, adding a standard function to validate bindings.
+
 ## 2.2.1
 * Fix missing set internal value in `TwoWayBinding`.
 

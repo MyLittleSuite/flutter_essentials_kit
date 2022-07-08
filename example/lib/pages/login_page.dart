@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 
 // ignore: must_be_immutable
-class TwoWayBindingPage extends StatelessWidget {
-  late TwoWayBinding<String> _noCheckBinding;
-  late TwoWayBinding<String> _binding;
-  late TwoWayBinding<String> _sameBinding;
+class LoginPage extends StatelessWidget {
+  late TwoWayBinding<String> _email;
+  late TwoWayBinding<String> _password;
+  late Stream<bool> _isValid;
 
-  TwoWayBindingPage() {
-    _noCheckBinding = TwoWayBinding<String>();
-    _binding = TwoWayBinding<String>()
+  LoginPage() {
+    _email = TwoWayBinding<String>()
         .bindDataRule(TrimRule())
         .bindDataRule(RequiredRule())
         .bindDataRule(LowerCaseRule())
         .bindDataRule(EmailRule());
-    _sameBinding = TwoWayBinding<String>().bindDataRule2(_binding, SameRule());
+
+    _password = TwoWayBinding<String>().bindDataRule(RequiredRule());
+
+    _isValid = TwoWayBindingUtils.validate([_email, _password]);
   }
 
   @override
@@ -24,48 +26,37 @@ class TwoWayBindingPage extends StatelessWidget {
           padding: EdgeInsets.all(16),
           children: [
             TwoWayBindingBuilder<String>(
-              binding: _noCheckBinding,
+              binding: _email,
               builder: (context, controller, data, onChanged, error) =>
                   TextField(
                 controller: controller,
                 onChanged: onChanged,
                 decoration: InputDecoration(
+                  label: Text('Email'),
                   errorText: error?.localizedString(context),
                 ),
               ),
             ),
-            Container(height: 16),
             TwoWayBindingBuilder<String>(
-              binding: _binding,
+              binding: _password,
               builder: (context, controller, data, onChanged, error) =>
                   TextField(
                 controller: controller,
                 onChanged: onChanged,
+                obscureText: true,
                 decoration: InputDecoration(
+                  label: Text('Password'),
                   errorText: error?.localizedString(context),
                 ),
               ),
             ),
-            Container(height: 16),
-            TwoWayBindingBuilder<String>(
-              binding: _binding,
-              builder: (context, controller, data, onChanged, error) => Column(
-                children: [
-                  Text("${data ?? 'None'}"),
-                  Text("${_binding.value ?? 'None'}"),
-                ],
-              ),
-            ),
-            Container(height: 16),
-            TwoWayBindingBuilder<String>(
-              binding: _sameBinding,
-              builder: (context, controller, data, onChanged, error) =>
-                  TextField(
-                controller: controller,
-                onChanged: onChanged,
-                decoration: InputDecoration(
-                  errorText: error?.localizedString(context),
-                ),
+            Divider(),
+            StreamBuilder<bool>(
+              stream: _isValid,
+              builder: (context, snap) => ElevatedButton(
+                child: Text('Sign in'),
+                onPressed:
+                    (snap.error == null && (snap.data ?? false)) ? () {} : null,
               ),
             ),
           ],

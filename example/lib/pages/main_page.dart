@@ -13,6 +13,10 @@ class MainPage extends StatelessWidget {
               title: Text('TwoWayBinding'),
               onTap: () => Navigator.pushNamed(context, '/two_way_binding'),
             ),
+            ListTile(
+              title: Text('Login'),
+              onTap: () => Navigator.pushNamed(context, '/login'),
+            ),
           ],
         ),
       );

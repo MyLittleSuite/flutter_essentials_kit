@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_essentials_kit/errors/data_rules/data_rule_error.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:tuple/tuple.dart';
@@ -23,7 +22,7 @@ class TwoWayBinding<T> {
         : BehaviorSubject<T?>();
     _stream = _subject.stream.asBroadcastStream();
 
-    _registerSubscription();
+    _value = seeded;
   }
 
   /// Transform this two way binding in stream.
@@ -45,30 +44,22 @@ class TwoWayBinding<T> {
 
   /// Add a change callback to perform some editing on other fields.
   TwoWayBinding<T> onChange(void Function(T? changed) callback) {
-    _stream = _stream.transform<T?>(
-      StreamTransformer<T?, T?>.fromHandlers(handleData: (data, sink) {
-        callback(data);
-        sink.add(data);
-      }),
-    ).asBroadcastStream();
+    _stream = _stream.map((data) {
+      callback(data);
+      return data;
+    }).asBroadcastStream();
 
-    _registerSubscription();
     return this;
   }
 
   /// Add a new data rule.
   TwoWayBinding<T> bindDataRule(DataRule<T, T> rule) {
-    _stream = _stream.transform<T?>(
-      StreamTransformer<T?, T?>.fromHandlers(handleData: (data, sink) {
-        try {
-          sink.add(rule.process(data));
-        } on DataRuleError catch (error) {
-          sink.addError(error);
-        }
-      }),
-    ).asBroadcastStream();
+    _stream = _stream.map((data) {
+      _value = data;
+      _value = rule.process(data);
+      return _value;
+    }).asBroadcastStream();
 
-    _registerSubscription();
     return this;
   }
 
@@ -81,17 +72,12 @@ class TwoWayBinding<T> {
       _stream,
       second._stream,
       (first, second) => Tuple2<T?, S?>(first, second),
-    ).asBroadcastStream().transform(StreamTransformer.fromHandlers(
-      handleData: (data, sink) {
-        try {
-          sink.add(rule.process(data));
-        } on DataRuleError catch (error) {
-          sink.addError(error);
-        }
-      },
-    ));
+    ).asBroadcastStream().map((data) {
+      _value = data.item1;
+      _value = rule.process(data);
+      return _value;
+    });
 
-    _registerSubscription();
     return this;
   }
 
@@ -99,15 +85,5 @@ class TwoWayBinding<T> {
   Future<void> close() async {
     await _streamSubscription?.cancel();
     await _subject.close();
-  }
-
-  Future<void> _registerSubscription() async {
-    await _streamSubscription?.cancel();
-    _streamSubscription = _stream.listen(
-      (value) => this._value = value,
-      onError: (_, __) {},
-      onDone: () {},
-      cancelOnError: false,
-    );
   }
 }
