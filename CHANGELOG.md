@@ -1,3 +1,6 @@
+## 2.2.1
+* Fix missing set internal value in `TwoWayBinding`.
+
 ## 2.2.0
 * Add `LowerCaseRule` and `UpperCaseRule` as new rules.
 * Update rxdart to 0.27.3.

@@ -35,6 +35,8 @@ class TwoWayBinding<T> {
   /// Set a new value. It will override the current value.
   set value(T? newValue) {
     textController.text = newValue?.toString() ?? '';
+
+    _value = newValue;
     _subject.add(newValue);
   }
 

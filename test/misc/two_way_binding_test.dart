@@ -12,6 +12,13 @@ void main() {
     values = faker.lorem.words(10);
   });
 
+  test('set with some values', () {
+    values.forEach((value) {
+      binding.value = value;
+      expect(binding.value, value);
+    });
+  });
+
   test('change with some values', () async {
     binding = binding.onChange((value) {
       expect(values.contains(value), isTrue);
