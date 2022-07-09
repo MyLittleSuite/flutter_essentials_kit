@@ -17,8 +17,8 @@ void main() {
       TwoWayBindingUtils.validate([binding, binding2]),
       emitsInOrder([
         emits(true),
-        emitsError(isInstanceOf<RequiredRuleError>()),
-        emitsError(isInstanceOf<RequiredRuleError>()),
+        emits(false),
+        emits(false),
         emits(false),
         emits(true),
       ]),
