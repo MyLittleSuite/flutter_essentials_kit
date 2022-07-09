@@ -1,3 +1,6 @@
+## 2.3.2
+* Restore `onErrorReturn(false)` and replay last value in `TwoWayBindingUtils.validate`.
+
 ## 2.3.1
 * Remove `onErrorReturn(false)` from `TwoWayBindingUtils.validate`.
 

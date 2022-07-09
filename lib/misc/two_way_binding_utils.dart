@@ -14,5 +14,5 @@ mixin TwoWayBindingUtils {
 
           return isValid;
         },
-      );
+      ).onErrorReturn(false).publishValue().autoConnect();
 }
