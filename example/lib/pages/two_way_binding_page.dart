@@ -30,6 +30,7 @@ class TwoWayBindingPage extends StatelessWidget {
                 controller: controller,
                 onChanged: onChanged,
                 decoration: InputDecoration(
+                  counterText: data,
                   errorText: error?.localizedString(context),
                 ),
               ),
@@ -42,6 +43,7 @@ class TwoWayBindingPage extends StatelessWidget {
                 controller: controller,
                 onChanged: onChanged,
                 decoration: InputDecoration(
+                  counterText: data,
                   errorText: error?.localizedString(context),
                 ),
               ),
@@ -64,6 +66,7 @@ class TwoWayBindingPage extends StatelessWidget {
                 controller: controller,
                 onChanged: onChanged,
                 decoration: InputDecoration(
+                  counterText: data,
                   errorText: error?.localizedString(context),
                 ),
               ),

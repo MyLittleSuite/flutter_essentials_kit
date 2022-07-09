@@ -3,7 +3,10 @@ import 'package:rxdart/rxdart.dart';
 
 mixin TwoWayBindingUtils {
   /// Perform a validation against the provided bindings.
-  static Stream<bool> validate(List<TwoWayBinding<Object>> bindings) =>
+  static Stream<bool> validate(
+    List<TwoWayBinding<Object>> bindings, {
+    bool initialValue = false,
+  }) =>
       Rx.combineLatest<Object?, bool>(
         bindings.map((binding) => binding.stream),
         (values) {
@@ -14,5 +17,5 @@ mixin TwoWayBindingUtils {
 
           return isValid;
         },
-      ).onErrorReturn(false).publishValue().autoConnect();
+      ).onErrorReturn(false).shareValueSeeded(initialValue).asBroadcastStream();
 }

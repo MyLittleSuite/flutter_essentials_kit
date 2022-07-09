@@ -16,6 +16,31 @@ void main() {
     expect(
       TwoWayBindingUtils.validate([binding, binding2]),
       emitsInOrder([
+        emits(false),
+        emits(true),
+        emits(false),
+        emits(false),
+        emits(false),
+        emits(true),
+      ]),
+    );
+
+    binding.value = faker.lorem.word();
+    binding2.value = faker.lorem.word();
+    binding.value = null;
+    binding2.value = null;
+    binding.value = faker.lorem.word();
+    binding2.value = faker.lorem.word();
+  });
+
+  test('validate with initial value to true', () {
+    expect(
+      TwoWayBindingUtils.validate(
+        [binding, binding2],
+        initialValue: true,
+      ),
+      emitsInOrder([
+        emits(true),
         emits(true),
         emits(false),
         emits(false),

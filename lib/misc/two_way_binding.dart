@@ -13,14 +13,13 @@ class TwoWayBinding<T> {
   late BehaviorSubject<T?> _subject;
   late Stream<T?> _stream;
 
-  StreamSubscription? _streamSubscription;
   T? _value;
 
   TwoWayBinding({T? seeded}) {
     _subject = seeded != null
         ? BehaviorSubject<T?>.seeded(seeded)
         : BehaviorSubject<T?>();
-    _stream = _subject.stream.asBroadcastStream();
+    _stream = _subject.stream.shareValue();
 
     _value = seeded;
   }
@@ -47,7 +46,7 @@ class TwoWayBinding<T> {
     _stream = _stream.map((data) {
       callback(data);
       return data;
-    }).asBroadcastStream();
+    }).shareValue();
 
     return this;
   }
@@ -58,7 +57,7 @@ class TwoWayBinding<T> {
       _value = data;
       _value = rule.process(data);
       return _value;
-    }).asBroadcastStream();
+    }).shareValue();
 
     return this;
   }
@@ -72,18 +71,17 @@ class TwoWayBinding<T> {
       _stream,
       second._stream,
       (first, second) => Tuple2<T?, S?>(first, second),
-    ).asBroadcastStream().map((data) {
+    ).map((data) {
       _value = data.item1;
       _value = rule.process(data);
       return _value;
-    });
+    }).shareValue();
 
     return this;
   }
 
   /// Closes the two way binding.
   Future<void> close() async {
-    await _streamSubscription?.cancel();
     await _subject.close();
   }
 }

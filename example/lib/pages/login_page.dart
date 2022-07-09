@@ -10,7 +10,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   late TwoWayBinding<String> _email;
   late TwoWayBinding<String> _password;
-  late Stream<bool> _isValid;
 
   bool _isLoading = false;
 
@@ -22,9 +21,9 @@ class _LoginPageState extends State<LoginPage> {
         .bindDataRule(EmailRule());
 
     _password = TwoWayBinding<String>().bindDataRule(RequiredRule());
-
-    _isValid = TwoWayBindingUtils.validate([_email, _password]);
   }
+
+  Stream<bool> get isValid => TwoWayBindingUtils.validate([_email, _password]);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -72,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _signInButton(BuildContext context) => !_isLoading
       ? StreamBuilder<bool>(
-          stream: _isValid,
+    stream: isValid,
           builder: (context, snap) {
             print("STREAM_SNAP: $snap");
 

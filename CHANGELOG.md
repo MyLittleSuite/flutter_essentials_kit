@@ -1,10 +1,19 @@
+## 2.3.3
+
+* Enhance validation pipeline in `TwoWayBindingUtils.validate`.
+* Add `TwoWayBindingUtils.validate` initial value.
+* Coding cleanup in `TwoWayBinding`.
+
 ## 2.3.2
+
 * Restore `onErrorReturn(false)` and replay last value in `TwoWayBindingUtils.validate`.
 
 ## 2.3.1
+
 * Remove `onErrorReturn(false)` from `TwoWayBindingUtils.validate`.
 
 ## 2.3.0
+
 * Bump `rxdart` to ^0.27.4.
 * Enhance implementation of `TwoWayBinding`, adding a standard function to validate bindings.
 
