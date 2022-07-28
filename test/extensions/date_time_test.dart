@@ -23,8 +23,8 @@ void main() {
       23,
       59,
       59,
-      date.millisecond,
-      date.microsecond,
+      999,
+      999,
     );
     expect(date.endOfDay(), equals(expected));
   });

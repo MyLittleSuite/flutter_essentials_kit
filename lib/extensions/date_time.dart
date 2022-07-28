@@ -9,7 +9,10 @@ extension DateTimeOperations on DateTime {
       );
 
   /// Create a new date setting hour to 23, minute to 59, and second to 59.
-  DateTime endOfDay() => _copyWith(hour: 23, minute: 59, second: 59);
+  DateTime endOfDay() {
+    final tomorrow = this.tomorrow().startOfDay();
+    return tomorrow.subtract(Duration(microseconds: 1));
+  }
 
   /// Create a new date with yesterday values.
   DateTime yesterday() => subtract(Duration(days: 1));
