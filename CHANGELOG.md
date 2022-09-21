@@ -1,3 +1,6 @@
+## 2.3.5
+* Fix broken sync value in `TwoWayBinding`.
+
 ## 2.3.4
 * Enhance `endOfDay` in `DateTime` extensions.
 
