@@ -22,6 +22,7 @@ void main() {
   test('change with some values', () async {
     binding = binding.onChange((value) {
       expect(values.contains(value), isTrue);
+      expect(value, equals(binding.value));
     });
 
     final futureExpect = expectLater(binding.stream, emitsInOrder(values));

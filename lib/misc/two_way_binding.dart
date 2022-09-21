@@ -39,13 +39,17 @@ class TwoWayBinding<T> {
   }
 
   /// Function to perform the change of the data.
-  void Function(T?) get change => _subject.sink.add;
+  void Function(T?) get change => (newValue) {
+        _value = newValue;
+        _subject.add(newValue);
+      };
 
   /// Add a change callback to perform some editing on other fields.
   TwoWayBinding<T> onChange(void Function(T? changed) callback) {
     _stream = _stream.map((data) {
+      _value = data;
       callback(data);
-      return data;
+      return _value;
     }).shareValue();
 
     return this;
