@@ -11,14 +11,14 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  rxdart: ^0.27.4
-  tuple: ^2.0.0
+  rxdart: ^0.27.7
+  tuple: ^2.0.1
   intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  faker: ^2.0.0
+  faker: ^2.1.0
 
 flutter:
   uses-material-design: true

@@ -45,7 +45,7 @@ class CourtesyWidget extends StatelessWidget {
         margin: leading?.let((_) => marginBetweenWidgets) ?? EdgeInsets.zero,
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
           textAlign: TextAlign.center,
         ),
       );
@@ -55,7 +55,7 @@ class CourtesyWidget extends StatelessWidget {
         child: message?.let(
           (it) => Text(
             it,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
         ),
