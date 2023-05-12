@@ -4,7 +4,7 @@ version: 2.3.5
 homepage: https://github.com/MyLittleSuite/flutter_essentials_kit
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
