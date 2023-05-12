@@ -1,3 +1,6 @@
+## 2.4.0
+* Bumped dependencies and added support to Dart 3
+
 ## 2.3.5
 * Fix broken sync value in `TwoWayBinding`.
 
