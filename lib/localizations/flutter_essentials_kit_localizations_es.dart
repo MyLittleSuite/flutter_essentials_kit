@@ -2,23 +2,23 @@ import 'package:intl/intl.dart' as intl;
 
 import 'flutter_essentials_kit_localizations.dart';
 
-/// The translations for English (`en`).
-class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizations {
-  FlutterEssentialsKitLocalizationsEn([String locale = 'en']) : super(locale);
+/// The translations for Spanish Castilian (`es`).
+class FlutterEssentialsKitLocalizationsEs extends FlutterEssentialsKitLocalizations {
+  FlutterEssentialsKitLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get ruleConfirmed => 'This field must be confirmed';
+  String get ruleConfirmed => 'Campo por confirmar';
 
   @override
-  String get ruleEmail => 'This email seems to be not valid';
+  String get ruleEmail => 'Este correo electrónico no parece ser válido';
 
   @override
   String ruleMaxStringLength(num max) {
     String _temp0 = intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      other: 'The text length can\'t be greater than $max characters',
-      one: 'The text length can\'t be greater than $max character',
+      other: 'La longitud del texto no puede ser superior a $max caracteres',
+      one: 'La longitud del texto no puede ser superior a $max carácter',
     );
     return '$_temp0';
   }
@@ -28,7 +28,7 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      other: 'The number can\'t be greater than $max',
+      other: 'El valor numérico no puede ser mayor que $max',
     );
     return '$_temp0';
   }
@@ -38,7 +38,7 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      other: 'The list length can\'t be greater than $max',
+      other: 'El tamaño de la lista no puede ser superior a $max',
     );
     return '$_temp0';
   }
@@ -48,8 +48,8 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      other: 'The text length can\'t be less than $min characters',
-      one: 'The text length can\'t be less than $min character',
+      other: 'La longitud del texto no puede ser inferior a $min caracteres',
+      one: 'La longitud del texto no puede ser inferior a $min carácter',
     );
     return '$_temp0';
   }
@@ -59,7 +59,7 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      other: 'The number can\'t be less than $min',
+      other: 'El valor numérico no puede ser inferior a $min',
     );
     return '$_temp0';
   }
@@ -69,27 +69,27 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      other: 'The list length can\'t be less than $min',
+      other: 'El tamaño de la lista no puede ser inferior a $min',
     );
     return '$_temp0';
   }
 
   @override
-  String get ruleRegex => 'This value is not valid';
+  String get ruleRegex => 'El elemento de datos no es válido';
 
   @override
-  String get ruleRequired => 'This field is required';
+  String get ruleRequired => 'Este campo es obligatorio';
 
   @override
-  String get ruleSame => 'The fields are not the same';
+  String get ruleSame => 'Los campos no coinciden';
 
   @override
   String ruleSizeStringLength(num size) {
     String _temp0 = intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      other: 'The text length must be $size characters',
-      one: 'The text length must be $size character',
+      other: 'La longitud del texto debe ser $size caracteres',
+      one: 'La longitud del texto debe ser $size carácter',
     );
     return '$_temp0';
   }
@@ -99,7 +99,7 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      other: 'The number must be $size',
+      other: 'El valor numérico debe ser $size caracteres',
     );
     return '$_temp0';
   }
@@ -109,7 +109,7 @@ class FlutterEssentialsKitLocalizationsEn extends FlutterEssentialsKitLocalizati
     String _temp0 = intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      other: 'The list length must be $size',
+      other: 'El tamaño de la lista debe ser $size',
     );
     return '$_temp0';
   }

@@ -1,6 +1,5 @@
-
-
 import 'package:intl/intl.dart' as intl;
+
 import 'flutter_essentials_kit_localizations.dart';
 
 /// The translations for Italian (`it`).
@@ -15,58 +14,64 @@ class FlutterEssentialsKitLocalizationsIt extends FlutterEssentialsKitLocalizati
 
   @override
   String ruleMaxStringLength(num max) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       max,
       locale: localeName,
-      one: 'La lunghezza del testo non può essere maggiore di $max carattere',
       other: 'La lunghezza del testo non può essere maggiore di $max caratteri',
+      one: 'La lunghezza del testo non può essere maggiore di $max carattere',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleMaxNumber(num max) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       max,
       locale: localeName,
       other: 'Il valore del numero non può essere maggiore di $max',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleMaxListLength(num max) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       max,
       locale: localeName,
       other: 'La dimensione della lista non può essere maggiore di $max',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleMinStringLength(num min) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       min,
       locale: localeName,
-      one: 'La lunghezza del testo non può essere minore di $min carattere',
       other: 'La lunghezza del testo non può essere minore di $min caratteri',
+      one: 'La lunghezza del testo non può essere minore di $min carattere',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleMinNumber(num min) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       min,
       locale: localeName,
       other: 'Il valore del numero non può essere minore di $min',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleMinListLength(num min) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       min,
       locale: localeName,
       other: 'La dimensione della lista non può essere minore di $min',
     );
+    return '$_temp0';
   }
 
   @override
@@ -80,29 +85,32 @@ class FlutterEssentialsKitLocalizationsIt extends FlutterEssentialsKitLocalizati
 
   @override
   String ruleSizeStringLength(num size) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       size,
       locale: localeName,
-      one: 'La lunghezza del testo deve essere di $size carattere',
       other: 'La lunghezza del testo deve essere di $size caratteri',
+      one: 'La lunghezza del testo deve essere di $size carattere',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleSizeNumber(num size) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       size,
       locale: localeName,
       other: 'Il valore del numero deve essere $size',
     );
+    return '$_temp0';
   }
 
   @override
   String ruleSizeListLength(num size) {
-    return intl.Intl.pluralLogic(
+    String _temp0 = intl.Intl.pluralLogic(
       size,
       locale: localeName,
       other: 'La dimensione della lista deve essere di $size',
     );
+    return '$_temp0';
   }
 }

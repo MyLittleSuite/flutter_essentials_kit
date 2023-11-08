@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -8,17 +7,18 @@ import 'package:intl/intl.dart' as intl;
 
 import 'flutter_essentials_kit_localizations_de.dart';
 import 'flutter_essentials_kit_localizations_en.dart';
+import 'flutter_essentials_kit_localizations_es.dart';
 import 'flutter_essentials_kit_localizations_fr.dart';
 import 'flutter_essentials_kit_localizations_it.dart';
 
-/// Callers can lookup localized strings with an instance of FlutterEssentialsKitLocalizations returned
-/// by `FlutterEssentialsKitLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of FlutterEssentialsKitLocalizations
+/// returned by `FlutterEssentialsKitLocalizations.of(context)`.
 ///
 /// Applications need to include `FlutterEssentialsKitLocalizations.delegate()` in their app's
-/// localizationDelegates list, and the locales they support in the app's
-/// supportedLocales list. For example:
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
 ///
-/// ```
+/// ```dart
 /// import 'gen_l10n/flutter_essentials_kit_localizations.dart';
 ///
 /// return MaterialApp(
@@ -33,14 +33,14 @@ import 'flutter_essentials_kit_localizations_it.dart';
 /// Please make sure to update your pubspec.yaml to include the following
 /// packages:
 ///
-/// ```
+/// ```yaml
 /// dependencies:
 ///   # Internationalization support.
 ///   flutter_localizations:
 ///     sdk: flutter
 ///   intl: any # Use the pinned version from flutter_localizations
 ///
-///   # rest of dependencies
+///   # Rest of dependencies
 /// ```
 ///
 /// ## iOS Applications
@@ -94,6 +94,7 @@ abstract class FlutterEssentialsKitLocalizations {
   static const List<Locale> supportedLocales = <Locale>[
     Locale('de'),
     Locale('en'),
+    Locale('es'),
     Locale('fr'),
     Locale('it')
   ];
@@ -131,7 +132,7 @@ abstract class FlutterEssentialsKitLocalizations {
   /// The rule min string error message
   ///
   /// In en, this message translates to:
-  /// **'{min, plural, =1{The text length can\'t be less than {min} character} other{The text length can\'t be less than {max} characters}}'**
+  /// **'{min, plural, =1{The text length can\'t be less than {min} character} other{The text length can\'t be less than {min} characters}}'**
   String ruleMinStringLength(num min);
 
   /// The rule min number error message
@@ -192,7 +193,7 @@ class _FlutterEssentialsKitLocalizationsDelegate extends LocalizationsDelegate<F
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['de', 'en', 'fr', 'it'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['de', 'en', 'es', 'fr', 'it'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_FlutterEssentialsKitLocalizationsDelegate old) => false;
@@ -205,6 +206,7 @@ FlutterEssentialsKitLocalizations lookupFlutterEssentialsKitLocalizations(Locale
   switch (locale.languageCode) {
     case 'de': return FlutterEssentialsKitLocalizationsDe();
     case 'en': return FlutterEssentialsKitLocalizationsEn();
+    case 'es': return FlutterEssentialsKitLocalizationsEs();
     case 'fr': return FlutterEssentialsKitLocalizationsFr();
     case 'it': return FlutterEssentialsKitLocalizationsIt();
   }

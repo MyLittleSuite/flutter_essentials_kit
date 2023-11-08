@@ -28,7 +28,7 @@
       "max": {}
     }
   },
-  "ruleMinStringLength": "{min, plural, =1{The text length can't be less than {min} character} other{The text length can't be less than {max} characters}}",
+  "ruleMinStringLength": "{min, plural, =1{The text length can't be less than {min} character} other{The text length can't be less than {min} characters}}",
   "@ruleMinStringLength": {
     "description": "The rule min string error message",
     "placeholders": {

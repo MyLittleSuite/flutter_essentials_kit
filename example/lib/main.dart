@@ -1,4 +1,5 @@
 import 'package:example/pages/courtesy_widget_page.dart';
+import 'package:example/pages/localizations_page.dart';
 import 'package:example/pages/login_page.dart';
 import 'package:example/pages/main_page.dart';
 import 'package:example/pages/two_way_binding_page.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           '/courtesy_widgets': (context) => CourtesyWidgetPage(),
           '/two_way_binding': (context) => TwoWayBindingPage(),
           '/login': (context) => LoginPage(),
+          '/localizations': (context) => LocalizationsPage(),
         },
         initialRoute: '/',
       );

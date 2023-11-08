@@ -17,6 +17,10 @@ class MainPage extends StatelessWidget {
               title: Text('Login'),
               onTap: () => Navigator.pushNamed(context, '/login'),
             ),
+            ListTile(
+              title: Text('Localizations'),
+              onTap: () => Navigator.pushNamed(context, '/localizations'),
+            ),
           ],
         ),
       );
