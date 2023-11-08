@@ -1,5 +1,9 @@
+## 2.5.0
+* Add `es` translation.
+* Create new page Localizations in example project.
+
 ## 2.4.0
-* Bumped dependencies and added support to Dart 3
+* Bumped dependencies and added support to Dart 3.
 
 ## 2.3.5
 * Fix broken sync value in `TwoWayBinding`.
