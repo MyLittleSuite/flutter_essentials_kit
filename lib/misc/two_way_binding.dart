@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_essentials_kit/misc/data_rules/data_rule.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:tuple/tuple.dart';
 
 /// A controller to perform 2 way binding between the field and the GUI element.
 class TwoWayBinding<T> {
@@ -69,14 +68,14 @@ class TwoWayBinding<T> {
   /// Add a new data rule, combined with another [TwoWayBinding].
   TwoWayBinding<T> bindDataRule2<S>(
     TwoWayBinding<S> second,
-    DataRule<Tuple2<T?, S?>, T> rule,
+    DataRule<(T?, S?), T> rule,
   ) {
-    _stream = Rx.combineLatest2<T?, S?, Tuple2<T?, S?>>(
+    _stream = Rx.combineLatest2<T?, S?, (T?, S?)>(
       _stream,
       second._stream,
-      (first, second) => Tuple2<T?, S?>(first, second),
+      (first, second) => (first, second),
     ).map((data) {
-      _value = data.item1;
+      _value = data.$1;
       _value = rule.process(data);
       return _value;
     }).shareValue();
