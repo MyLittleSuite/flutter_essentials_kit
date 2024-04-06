@@ -7,9 +7,10 @@ class CourtesyWidget extends StatelessWidget {
   final String title;
   final String? message;
   final String? action;
-  final VoidCallback? onPressed;
+  final GestureTapCallback? onPressed;
   final EdgeInsets padding;
   final EdgeInsets marginBetweenWidgets;
+  final bool fullWidth;
 
   CourtesyWidget({
     Key? key,
@@ -20,6 +21,7 @@ class CourtesyWidget extends StatelessWidget {
     this.onPressed,
     this.padding = const EdgeInsets.all(16),
     this.marginBetweenWidgets = const EdgeInsets.only(top: 8),
+    this.fullWidth = false,
   }) : super(key: key);
 
   @override
@@ -62,6 +64,7 @@ class CourtesyWidget extends StatelessWidget {
       );
 
   Widget _action(BuildContext context) => Container(
+        width: fullWidth ? double.maxFinite : null,
         margin: action?.let((_) => marginBetweenWidgets) ?? EdgeInsets.zero,
         child: action?.let(
           (it) => ElevatedButton(
