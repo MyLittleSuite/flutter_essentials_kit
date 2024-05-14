@@ -1,3 +1,6 @@
+## 2.6.0
+* Bumped dependencies
+
 ## 2.5.0
 * Add `es` translation.
 * Create new page Localizations in example project.
