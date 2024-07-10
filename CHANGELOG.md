@@ -1,3 +1,6 @@
+## 2.7.0
+* Bumped dependencies
+
 ## 2.6.0
 * Bumped dependencies
 
