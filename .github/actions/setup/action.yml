@@ -1,4 +1,5 @@
 name: Setup Flutter environment and get dependencies
+description: 'Installs Flutter via FVM and runs `flutter pub get` to fetch dependencies.'
 
 runs:
   using: "composite"
