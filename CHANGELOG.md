@@ -1,3 +1,7 @@
+## NEXT
+* Bumped dependencies
+* Replaced `Container` with `SizedBox` in `Spacing`.
+
 ## 2.7.0
 * Bumped dependencies
 

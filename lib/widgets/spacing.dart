@@ -18,7 +18,7 @@ class Spacing extends StatelessWidget {
       : this(key: key, vertical: value);
 
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => SizedBox(
         width: horizontal,
         height: vertical,
       );
