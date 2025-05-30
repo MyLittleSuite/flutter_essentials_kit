@@ -1,4 +1,6 @@
 ## NEXT
+
+## 2.8.0
 * Bumped dependencies
 * Replaced `Container` with `SizedBox` in `Spacing`.
 
