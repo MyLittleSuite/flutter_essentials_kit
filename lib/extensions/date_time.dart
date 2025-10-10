@@ -20,6 +20,12 @@ extension DateTimeOperations on DateTime {
   /// Create a new date with tomorrow values.
   DateTime tomorrow() => add(Duration(days: 1));
 
+  /// Create a new first date of this week.
+  DateTime firstDayOfWeek() => subtract(Duration(days: weekday - 1));
+
+  /// Create a new last date of this week.
+  DateTime lastDayOfWeek() => add(Duration(days: DateTime.daysPerWeek - weekday));
+
   /// Create a new first date of this month.
   DateTime firstDayOfMonth() => subtract(Duration(days: day - 1));
 
