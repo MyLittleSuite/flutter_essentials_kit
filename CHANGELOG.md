@@ -1,5 +1,9 @@
 ## NEXT
 
+## 2.9.0
+* Bumped dependencies
+* Added `firstDayOfWeek` and `lastDayOfWeek` in `DateTime` extensions.
+
 ## 2.8.0
 * Bumped dependencies
 * Replaced `Container` with `SizedBox` in `Spacing`.

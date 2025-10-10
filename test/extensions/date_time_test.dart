@@ -40,33 +40,29 @@ void main() {
   });
 
   test('firstDayOfWeek', () {
-    final expectedDay = date.day - (date.weekday - 1);
-    final expectedMonth = date.month;
-    final expectedYear = date.year;
+    final expected = date.subtract(Duration(days: date.weekday - 1));
 
     final result = date.firstDayOfWeek();
     final resultDay = result.day;
     final resultMonth = result.month;
     final resultYear = result.year;
 
-    expect(resultDay, equals(expectedDay));
-    expect(resultMonth, equals(expectedMonth));
-    expect(resultYear, equals(expectedYear));
+    expect(resultDay, equals(expected.day));
+    expect(resultMonth, equals(expected.month));
+    expect(resultYear, equals(expected.year));
   });
 
   test('lastDayOfWeek', () {
-    final expectedDay = date.day + (DateTime.daysPerWeek - date.weekday);
-    final expectedMonth = date.month;
-    final expectedYear = date.year;
+    final expected = date.add(Duration(days: DateTime.daysPerWeek - date.weekday));
 
     final result = date.lastDayOfWeek();
     final resultDay = result.day;
     final resultMonth = result.month;
     final resultYear = result.year;
 
-    expect(resultDay, equals(expectedDay));
-    expect(resultMonth, equals(expectedMonth));
-    expect(resultYear, equals(expectedYear));
+    expect(resultDay, equals(expected.day));
+    expect(resultMonth, equals(expected.month));
+    expect(resultYear, equals(expected.year));
   });
 
   test('firstDayOfMonth', () {
