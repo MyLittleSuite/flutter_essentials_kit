@@ -1,5 +1,9 @@
 ## NEXT
 
+## 2.9.1
+* Bumped dependencies
+* Added `RepositoryError`.
+
 ## 2.9.0
 * Bumped dependencies
 * Added `firstDayOfWeek` and `lastDayOfWeek` in `DateTime` extensions.

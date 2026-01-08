@@ -1,4 +1,4 @@
-library flutter_essentials_kit;
+library;
 
 export 'errors/data_rules/confimed_rule_error.dart';
 export 'errors/data_rules/data_rule_error.dart';
@@ -10,12 +10,12 @@ export 'errors/data_rules/required_rule_error.dart';
 export 'errors/data_rules/same_rule_error.dart';
 export 'errors/data_rules/size_rule_error.dart';
 export 'errors/localized_error.dart';
+export 'errors/repository_error.dart';
 export 'exceptions/localized_exception.dart';
 export 'extensions/color.dart';
 export 'extensions/commons.dart';
 export 'extensions/date_time.dart';
 export 'extensions/iterable.dart';
-export 'misc/two_way_binding_utils.dart';
 export 'localizations/flutter_essentials_kit_localizations.dart';
 export 'misc/data_rules/confirmed_rule.dart';
 export 'misc/data_rules/data_rule.dart';
@@ -31,6 +31,7 @@ export 'misc/data_rules/trim_rule.dart';
 export 'misc/data_rules/upper_case_rule.dart';
 export 'misc/localized.dart';
 export 'misc/two_way_binding.dart';
+export 'misc/two_way_binding_utils.dart';
 export 'widgets/courtesy_widget.dart';
 export 'widgets/spacing.dart';
 export 'widgets/two_way_binding_builder.dart';

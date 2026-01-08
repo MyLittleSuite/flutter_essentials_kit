@@ -7,6 +7,12 @@
 </details>
 
 <details>
+    <summary>Repository error</summary>
+
+    A generic error class for repository operations.
+</details>
+
+<details>
     <summary>Data rule errors</summary>
     
     Here the list of all possible data rule errors.
