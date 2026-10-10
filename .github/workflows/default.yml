@@ -17,6 +17,17 @@ jobs:
     name: Static Analysis
     uses: ./.github/workflows/analyze.yml
 
+  build:
+    name: Build example (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [android, ios]
+    uses: ./.github/workflows/build.yml
+    with:
+      platform: ${{ matrix.platform }}
+      working-directory: example
+
   release:
     needs:
       - test
@@ -33,7 +44,7 @@ jobs:
   ci-ok:
     name: ci-ok
     if: ${{ always() }}
-    needs: [test, analyze]
+    needs: [test, analyze, build]
     runs-on: ubuntu-latest
     steps:
       - name: Fail unless every required job succeeded
