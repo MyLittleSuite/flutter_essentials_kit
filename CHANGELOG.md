@@ -1,5 +1,11 @@
 ## NEXT
 
+## 3.0.0
+* **BREAKING**: Migrated from `package:flutter/material.dart` to `package:material_ui/material_ui.dart`, following the Flutter 3.50 deprecation of the built-in Material and Cupertino libraries.
+* **BREAKING**: Raised the minimum requirements to Dart `^3.13.0` and Flutter `>=3.47.0`, as required by `material_ui`.
+* **BREAKING**: `FlutterEssentialsKitLocalizations.localizationsDelegates` now uses `GlobalMaterialLocalizations.delegates` from `material_ui` instead of the deprecated `GlobalMaterialLocalizations`, `GlobalCupertinoLocalizations` and `GlobalWidgetsLocalizations` from `flutter_localizations`. Apps must depend on `material_ui` and migrate their own delegates too (`dart fix --apply --code=migrate_design_widgets`).
+* Added `material_ui` dependency.
+
 ## 2.9.1
 * Bumped dependencies
 * Added `RepositoryError`.
