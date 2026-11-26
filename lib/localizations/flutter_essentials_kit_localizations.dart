@@ -85,7 +85,9 @@ abstract class FlutterEssentialsKitLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
     delegate,
+    // ignore: deprecated_member_use
     GlobalMaterialLocalizations.delegate,
+    // ignore: deprecated_member_use
     GlobalCupertinoLocalizations.delegate,
     GlobalWidgetsLocalizations.delegate,
   ];
