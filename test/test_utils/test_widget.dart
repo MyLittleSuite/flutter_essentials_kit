@@ -1,4 +1,3 @@
-// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:flutter_essentials_kit/localizations/flutter_essentials_kit_localizations.dart';
 
