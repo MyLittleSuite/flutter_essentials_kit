@@ -3,9 +3,8 @@ import 'package:example/pages/localizations_page.dart';
 import 'package:example/pages/login_page.dart';
 import 'package:example/pages/main_page.dart';
 import 'package:example/pages/two_way_binding_page.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,9 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         localizationsDelegates: [
           FlutterEssentialsKitLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
+          ...GlobalMaterialLocalizations.delegates,
         ],
         routes: {
           '/': (context) => MainPage(),

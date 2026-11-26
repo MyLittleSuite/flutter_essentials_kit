@@ -21,14 +21,21 @@ import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
 Plug the localization class in your `localizationsDelegates`.
 ```dart
 import 'package:flutter_essentials_kit/flutter_essentials_kit.dart';
+import 'package:material_ui/material_ui.dart';
 
 MaterialApp(
   localizationsDelegates: [
-    // ...
     FlutterEssentialsKitLocalizations.delegate,
-    // ...
+    ...GlobalMaterialLocalizations.delegates,
+  ],
 );
 ```
+
+## Requirements
+Since version 3.0.0 this package relies on [`material_ui`](https://pub.dev/packages/material_ui) instead of
+`package:flutter/material.dart`, which requires Dart `^3.13.0` and Flutter `>=3.47.0`.
+Your app should also depend on `material_ui` and use `GlobalMaterialLocalizations.delegates` from it.
+To migrate your own code run `dart fix --apply --code=migrate_design_widgets`.
 
 ## Docs
 * [errors](mds/errors.md)

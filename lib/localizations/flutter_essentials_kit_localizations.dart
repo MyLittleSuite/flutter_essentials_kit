@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:material_ui/material_ui.dart' show GlobalMaterialLocalizations;
 
 import 'flutter_essentials_kit_localizations_de.dart';
 import 'flutter_essentials_kit_localizations_en.dart';
@@ -38,6 +38,7 @@ import 'flutter_essentials_kit_localizations_it.dart';
 ///   # Internationalization support.
 ///   flutter_localizations:
 ///     sdk: flutter
+///   material_ui: any
 ///   intl: any # Use the pinned version from flutter_localizations
 ///
 ///   # Rest of dependencies
@@ -77,17 +78,16 @@ abstract class FlutterEssentialsKitLocalizations {
   /// delegates.
   ///
   /// Returns a list of localizations delegates containing this delegate along with
-  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
-  /// and GlobalWidgetsLocalizations.delegate.
+  /// the delegates of `GlobalMaterialLocalizations.delegates` from `material_ui`
+  /// (GlobalCupertinoLocalizations, GlobalMaterialLocalizations and
+  /// GlobalWidgetsLocalizations).
   ///
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
     delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
+    ...GlobalMaterialLocalizations.delegates,
   ];
 
   /// A list of this localizations delegate's supported locales.

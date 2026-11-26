@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_essentials_kit/extensions/commons.dart';
 
 /// Create a courtesy widget with an optional leading widget, a required title, optional message, optional action and onPressed callback on that action.
